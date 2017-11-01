@@ -278,6 +278,11 @@ format (V.Fyodorov@tltsu.ru)]
     ''\vrule depth 0.8pt height -0.4pt width8mm''\vrule
     depth 0.8pt height -0.4pt width20mm\ \eskdyear\ \cyrg\par\vskip 3mm}
   }
+\newcommand{\titleDesignedByNoYear}[2]{%
+  \xdef\eskd@author@list{\eskd@author@list#1\par\vrule
+    depth 0.8pt height -0.4pt width31mm~#2\par
+    }
+  }
 
 \newcommand{\tfIII}{\hyphenpenalty=10000 %
   \begin{tabular}{@{\hspace{5mm}}p{80mm}@{\hspace{10mm}}p{80mm}}%
