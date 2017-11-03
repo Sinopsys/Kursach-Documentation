@@ -23,6 +23,8 @@
 *.synctex.gz
 *.fdb_latexmk
 *.fls
+*.bcf
+*.run.xml
 
 
 *.swp
