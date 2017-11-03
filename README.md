@@ -1,2 +1,6 @@
-# Kursach-Documentation
-3 course documentation for group coursework "ShopDiscounts"
+# The Client-Server Android Application for Managing the Products' Discounts in Retail Networks
+
+### Personal documentation.
+
+#### Student: Kupriyanov Kirill, BSE151.
+
