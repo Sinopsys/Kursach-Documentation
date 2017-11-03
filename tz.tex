@@ -18,7 +18,10 @@
 	urlcolor=black
 }
 
-
+\usepackage[backend=biber
+           % ,style=authoryear-icomp
+            ]{biblatex}
+\addbibresource{used_sources.bib}
 
 % NLS support packages
 \usepackage[T2A]{fontenc}
@@ -39,7 +42,7 @@
 % \usepackage{showframe}
 
 % Indices & bibliography
-\usepackage{natbib}
+%\usepackage{natbib}
 \usepackage[titles]{tocloft}
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{5}
@@ -117,7 +120,7 @@
 	\newpage
 	\section{Введение}
 	\input{introduction}
-	
+
 	\newpage
 	\section{Основания для разработки}
 	\input{reason_for_developing}
