@@ -1,0 +1,204 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.8 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist[entry]{nty/global/}
+    \entry{css_grid}{online}{}
+      \field{sortinit}{C}
+      \field{sortinithash}{095692fd22cc3c74d7fe223d02314dbd}
+      \field{labeltitlesource}{title}
+      \field{day}{4}
+      \field{month}{11}
+      \field{title}{Can I use... Support tables for HTML5, CSS3, etc}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \verb{url}
+      \verb http://caniuse.com/#feat=css-grid
+      \endverb
+    \endentry
+    \entry{wiki_adaptive}{online}{}
+      \field{sortinit}{А}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labeltitlesource}{title}
+      \field{month}{10}
+      \field{title}{Адаптивный веб-дизайн}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \verb{url}
+      \verb https://ru.wikipedia.org/wiki/%D0%90%D0%B4%D0%B0%D0%BF%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9_%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD
+      \endverb
+    \endentry
+    \entry{gost_types_of_software}{book}{}
+      \name{author}{1}{}{%
+        {{hash=ce13041f79e2222fe1050110d019ec06}{%
+           family={Документации},
+           familyi={Д\bibinitperiod},
+           given={Единая\bibnamedelimb Система\bibnamedelima Программной},
+           giveni={Е\bibinitperiod\bibinitdelim С\bibinitperiod\bibinitdelim П\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ИПК Издательство стандартов}%
+      }
+      \strng{namehash}{ce13041f79e2222fe1050110d019ec06}
+      \strng{fullhash}{ce13041f79e2222fe1050110d019ec06}
+      \strng{authornamehash}{ce13041f79e2222fe1050110d019ec06}
+      \strng{authorfullhash}{ce13041f79e2222fe1050110d019ec06}
+      \field{sortinit}{Д}
+      \field{sortinithash}{c768d57403bd187a07bf2b49b8752c47}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{ГОСТ 19.101-77 Виды программ и программных документов}
+      \field{year}{2001}
+    \endentry
+    \entry{gost_stages_of_devel}{book}{}
+      \name{author}{1}{}{%
+        {{hash=ce13041f79e2222fe1050110d019ec06}{%
+           family={Документации},
+           familyi={Д\bibinitperiod},
+           given={Единая\bibnamedelimb Система\bibnamedelima Программной},
+           giveni={Е\bibinitperiod\bibinitdelim С\bibinitperiod\bibinitdelim П\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ИПК Издательство стандартов}%
+      }
+      \strng{namehash}{ce13041f79e2222fe1050110d019ec06}
+      \strng{fullhash}{ce13041f79e2222fe1050110d019ec06}
+      \strng{authornamehash}{ce13041f79e2222fe1050110d019ec06}
+      \strng{authorfullhash}{ce13041f79e2222fe1050110d019ec06}
+      \field{sortinit}{Д}
+      \field{sortinithash}{c768d57403bd187a07bf2b49b8752c47}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{ГОСТ 19.102-77 Стадии разработки}
+      \field{year}{2001}
+    \endentry
+    \entry{gost_marking_software}{book}{}
+      \name{author}{1}{}{%
+        {{hash=ce13041f79e2222fe1050110d019ec06}{%
+           family={Документации},
+           familyi={Д\bibinitperiod},
+           given={Единая\bibnamedelimb Система\bibnamedelima Программной},
+           giveni={Е\bibinitperiod\bibinitdelim С\bibinitperiod\bibinitdelim П\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ИПК Издательство стандартов}%
+      }
+      \strng{namehash}{ce13041f79e2222fe1050110d019ec06}
+      \strng{fullhash}{ce13041f79e2222fe1050110d019ec06}
+      \strng{authornamehash}{ce13041f79e2222fe1050110d019ec06}
+      \strng{authorfullhash}{ce13041f79e2222fe1050110d019ec06}
+      \field{sortinit}{Д}
+      \field{sortinithash}{c768d57403bd187a07bf2b49b8752c47}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{ГОСТ 19.103-77 Обозначения программ и программных документов}
+      \field{year}{2001}
+    \endentry
+    \entry{gost_main_signs}{book}{}
+      \name{author}{1}{}{%
+        {{hash=ce13041f79e2222fe1050110d019ec06}{%
+           family={Документации},
+           familyi={Д\bibinitperiod},
+           given={Единая\bibnamedelimb Система\bibnamedelima Программной},
+           giveni={Е\bibinitperiod\bibinitdelim С\bibinitperiod\bibinitdelim П\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ИПК Издательство стандартов}%
+      }
+      \strng{namehash}{ce13041f79e2222fe1050110d019ec06}
+      \strng{fullhash}{ce13041f79e2222fe1050110d019ec06}
+      \strng{authornamehash}{ce13041f79e2222fe1050110d019ec06}
+      \strng{authorfullhash}{ce13041f79e2222fe1050110d019ec06}
+      \field{sortinit}{Д}
+      \field{sortinithash}{c768d57403bd187a07bf2b49b8752c47}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{ГОСТ 19.104-78 Основные надписи}
+      \field{year}{2001}
+    \endentry
+    \entry{gost_demands_for_docs}{book}{}
+      \name{author}{1}{}{%
+        {{hash=ce13041f79e2222fe1050110d019ec06}{%
+           family={Документации},
+           familyi={Д\bibinitperiod},
+           given={Единая\bibnamedelimb Система\bibnamedelima Программной},
+           giveni={Е\bibinitperiod\bibinitdelim С\bibinitperiod\bibinitdelim П\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ИПК Издательство стандартов}%
+      }
+      \strng{namehash}{ce13041f79e2222fe1050110d019ec06}
+      \strng{fullhash}{ce13041f79e2222fe1050110d019ec06}
+      \strng{authornamehash}{ce13041f79e2222fe1050110d019ec06}
+      \strng{authorfullhash}{ce13041f79e2222fe1050110d019ec06}
+      \field{sortinit}{Д}
+      \field{sortinithash}{c768d57403bd187a07bf2b49b8752c47}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{ГОСТ 19.106-78 Требования к программным документам}
+      \field{year}{2001}
+    \endentry
+    \entry{gost_tz}{book}{}
+      \name{author}{1}{}{%
+        {{hash=ce13041f79e2222fe1050110d019ec06}{%
+           family={Документации},
+           familyi={Д\bibinitperiod},
+           given={Единая\bibnamedelimb Система\bibnamedelima Программной},
+           giveni={Е\bibinitperiod\bibinitdelim С\bibinitperiod\bibinitdelim П\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ИПК Издательство стандартов}%
+      }
+      \strng{namehash}{ce13041f79e2222fe1050110d019ec06}
+      \strng{fullhash}{ce13041f79e2222fe1050110d019ec06}
+      \strng{authornamehash}{ce13041f79e2222fe1050110d019ec06}
+      \strng{authorfullhash}{ce13041f79e2222fe1050110d019ec06}
+      \field{sortinit}{Д}
+      \field{sortinithash}{c768d57403bd187a07bf2b49b8752c47}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{ГОСТ 19.201-78 Техническое задание. Требования к содержанию и оформлению}
+      \field{year}{2001}
+    \endentry
+    \entry{gost_main_rules_change}{book}{}
+      \name{author}{1}{}{%
+        {{hash=ce13041f79e2222fe1050110d019ec06}{%
+           family={Документации},
+           familyi={Д\bibinitperiod},
+           given={Единая\bibnamedelimb Система\bibnamedelima Программной},
+           giveni={Е\bibinitperiod\bibinitdelim С\bibinitperiod\bibinitdelim П\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ИПК Издательство стандартов}%
+      }
+      \strng{namehash}{ce13041f79e2222fe1050110d019ec06}
+      \strng{fullhash}{ce13041f79e2222fe1050110d019ec06}
+      \strng{authornamehash}{ce13041f79e2222fe1050110d019ec06}
+      \strng{authorfullhash}{ce13041f79e2222fe1050110d019ec06}
+      \field{sortinit}{Д}
+      \field{sortinithash}{c768d57403bd187a07bf2b49b8752c47}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{ГОСТ 19.603-78 Общие правила внесения изменений}
+      \field{year}{2001}
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+

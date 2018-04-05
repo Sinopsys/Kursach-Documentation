@@ -1,0 +1,168 @@
+При программировании на Unity, каждый скрипт предсавляет собой отдельный класс, в котором, как правило, есть 2 метода: Start и Update. Start вызывается 1 раз при запуске скрипта, а Update вызывается 1 раз за фрейм. 
+
+\subsection{WalkByLook}
+Поля:\\
+\begin{small}
+    \begin{verbatim}
+    public float angle1 = 30F, angle2 = 80F;
+    public float speed = 5F;
+    private bool moveForward;
+    private CharacterController cc;
+    public Transform vrCam;
+    private bool lookingToObject = false;
+    private bool mustLookToTheObject = false;
+    public AudioSource[] footSteps;
+    private bool shouldMove = false, playing = false;
+    \end{verbatim}
+\end{small}
+Класс, созданный для передвижения игрока при помощи угла наклона головы по оси Х.
+
+\subsection{BellBehaviour}
+Поля:\\
+\begin{small}
+    \begin{verbatim}
+public Material bellHoverMaterial;
+public Material defaultBellMaterial;
+private AudioSource audioSrc;
+    \end{verbatim}
+\end{small}
+Отвечает за поведение колокольчика при наведении на него reticle и нажатии (загрузки нижнего индикатора).
+\subsection{BellPuzzleLauncher}
+Поля:\\
+\begin{small}
+    \begin{verbatim}
+public Transform handMountingPosition;
+private bool hasBell = false;
+private float angle;
+public Transform vrCam;
+public GameObject bellPuzzle;
+public Transform firstToComplete, secondToComplete;
+private bool firstPut = false, secondPut = false;
+    \end{verbatim}
+\end{small}
+Прикрепляется к невидимому кубу с коллайдером, который при столкновении с персонажем и наведении им указателя на место головоломки вешает колокольчик из руки, и, если все 5 на месте, запускает головоломку. 
+
+\subsection{KeyDoorOpener}
+Поля:\\
+\begin{small}
+    \begin{verbatim}
+public GameObject door, final;
+private static bool opened = false;
+private float timeToOpen = 1F;
+public Transform handMountingPosition;
+    \end{verbatim}
+\end{small}
+
+Класс, отвечающий за открытие двери когда в руке у игрока находится ключ.
+
+\subsection{LastPuzzleLogic}
+Поля:\\
+\begin{small}
+    \begin{verbatim}
+    char[] numbers;
+    bool solved;
+    float step;
+    string key = "4118956";
+    public GameObject Key;
+        \end{verbatim}
+\end{small}
+
+Класс, отвечающий за поведение последней головоломки с ключем на книжном шкафу.
+
+\subsection{MainMenu}
+ Поля:\\
+\begin{small}
+    \begin{verbatim}
+        public GameObject character, story;
+   
+    \end{verbatim}
+\end{small}
+
+Класс главного меню, прикрепляется к двум лэйблам <<PLAY>> и <<EXIT>>.
+
+\subsection{ModChanger}
+Поля:\\
+\begin{small}
+    \begin{verbatim}
+    public GameObject modeChooser;
+    public static bool vrModeEnabled = false;
+    private bool checked_ = false;ы
+    \end{verbatim}
+\end{small}
+Класс, отвечающий за выбор режима (VR Mode или Normal Mode)
+
+
+\subsection{NumberChanger}
+Поля:\\
+\begin{small}
+    \begin{verbatim}
+    int n;
+    public float timeDelay = 1F;
+    float currentTime = 0F;
+    bool gazedAt = false;
+    \end{verbatim}
+\end{small}
+Класс, отвечающий за изменение каждой цифры в последней головоломке.  
+
+
+\subsection{OpenDoorAndLoadScene}
+Поля:\\
+\begin{small}
+    \begin{verbatim}
+    public GameObject door;
+    public static bool opened = false;
+    public float timeToOpen = 0.6F;
+    \end{verbatim}
+\end{small}
+Класс, отвечающий за открытие двери с TransitScene для входа в дом.
+
+\subsection{PickUpObject}
+Поля:\\
+\begin{small}
+    \begin{verbatim}
+    public Vector3 handPosition;
+    public Vector3 handRotation;
+    Vector3 oldScale;
+    public float angle1 = 275F, angle2 = 303F;
+    public Transform handMountingPosition;
+    public Transform vrCam;
+    private bool tilted;
+    bool pickedUp = false;
+    \end{verbatim}
+\end{small}
+Класс, отвечающий за перемещение объекта с места, где он лежал, в руку игроку.
+
+\subsection{StoryLogic}
+Поля:\\
+\begin{small}
+    \begin{verbatim}
+    public GameObject character, vrCam, guide, tryIt, glhf, stone, constraint;
+    private bool freezeMove = true, thrown = false, shown = false;
+    \end{verbatim}
+\end{small}
+Класс, отвечающий за последовательность показа приветственных текстов и обучающего фрагмента вначале.
+
+\subsection{Unscrew}
+Поля:\\
+\begin{small}
+    \begin{verbatim}
+    bool unscrewed = false, hasScrewDriver = false;
+    public Transform handMountingPosition;
+    \end{verbatim}
+\end{small}
+Класс, отвечающий за откручивание колокольчика со стены при помощи отвертки в руке игрока.
+
+\subsection{VRSlider}
+Поля:\\
+\begin{small}
+    \begin{verbatim}
+    public float fillTime = 2f;
+    public int Scene = 1;
+    private Slider mySlider;
+    private float timer;
+    private bool gazedAt;
+    private Coroutine fillBarRoutine;
+    \end{verbatim}
+\end{small}
+Класс, отвечающий за анимацию слайдера - индикатора внизу экрана.
+

@@ -1,7 +1,5 @@
 %% Copyright 2004 Vjacheslav A. Fyodorov
 
-
-
 \NeedsTeXFormat{LaTeX2e} \ProvidesClass{twoeskd}[2004/10/12 a4 eskd
 format (V.Fyodorov@tltsu.ru)]
 
@@ -277,11 +275,6 @@ format (V.Fyodorov@tltsu.ru)]
     depth 0.8pt height -0.4pt width31mm~#2\par
     ''\vrule depth 0.8pt height -0.4pt width8mm''\vrule
     depth 0.8pt height -0.4pt width20mm\ \eskdyear\ \cyrg\par\vskip 3mm}
-  }
-\newcommand{\titleDesignedByNoYear}[2]{%
-  \xdef\eskd@author@list{\eskd@author@list#1\par\vrule
-    depth 0.8pt height -0.4pt width31mm~#2\par
-    }
   }
 
 \newcommand{\tfIII}{\hyphenpenalty=10000 %
