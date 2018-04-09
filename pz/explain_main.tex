@@ -47,9 +47,13 @@ encoding=utf8
 % \renewcommand{\sectionmark}[1]{%
 %   \markright{\thesection\ #1}%
 % }
+\usepackage[backend=biber
+           % ,style=authoryear-icomp
+            ]{biblatex}
+\addbibresource{used_sources.bib}
 
 % Indices & bibliography
-\usepackage{natbib}
+% \usepackage{natbib}
 \usepackage[titles]{tocloft}
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{5}
@@ -104,42 +108,40 @@ encoding=utf8
 
 % this makes items spacing single-spaced in enumerations.
 \newenvironment{my_enumerate}{
-\begin{enumerate}
-  \setlength{\itemsep}{1pt}
-  \setlength{\parskip}{0pt}
-  \setlength{\parsep}{0pt}}{\end{enumerate}
+	\begin{enumerate}
+		\setlength{\itemsep}{1pt}
+		\setlength{\parskip}{0pt}
+		\setlength{\parsep}{0pt}}{\end{enumerate}
 }
+\usepackage{pbox}
 
-
-% Custom commands
 % configure eskd
 \titleTop{
-\textbf{\Large ПРАВИТЕЛЬСТВО РОССИЙСКОЙ ФЕДЕРАЦИИ \\
-НАЦИОНАЛЬНЫЙ ИССЛЕДОВАТЕЛЬСКИЙ УНИВЕРСИТЕТ \\
-«ВЫСШАЯ ШКОЛА ЭКОНОМИКИ» } \\
-\vspace*{0.2cm}
-{\small Факультет компьютерных наук \\
-Департамент программнoй инженерии \\
+	{\Large ПРАВИТЕЛЬСТВО РОССИЙСКОЙ ФЕДЕРАЦИИ \\
+		НАЦИОНАЛЬНЫЙ ИССЛЕДОВАТЕЛЬСКИЙ УНИВЕРСИТЕТ \\
+		«ВЫСШАЯ ШКОЛА ЭКОНОМИКИ» } \\
+	\vspace*{0.2cm}
+	{Факультет компьютерных наук \\
+		Департамент программнoй инженерии \\
+	}
 }
-}
-\titleDesignedBy{Студент группы БПИ 151 НИУ ВШЭ}{Куприянов К.И.}
-\titleAgreedBy{%
-\parbox[t]{7cm} {
-Доцент департамента \\
-программной инженерии \\
-факультета компьютерных наук \\
-канд. техн. наук \\
-}}{Гринкруг Е. М.}
+\titleDesignedBy{Студент группы БПИ 151 НИУ-ВШЭ}{Куприянов К. И.}
+
+\titleAgreedBy{
+	\parbox[t]{7cm} {
+		\centerline{Академический руководитель ОП}
+		\centerline{Системная и программная инженерия}
+		\centerline{профессор ДПИ}
+}}{Д.В. Александров}
 \titleApprovedBy{
-\parbox[t]{10cm} {
-Академический руководитель \\
-образовательной программы \\
-«Программная инженерия» \\
-профессор департамента программной \\
-инженерии канд. техн. наук \\
-}}{Шилов В. В.}
-\titleName{Игра — Эскейп Квест с Использованием Очков Виртуальной Реальности}
-\workTypeId{RU.17701729.509000 81 01-1}
+	\parbox[t]{7cm} {
+		\centerline{Академический руководитель}
+		\centerline{образовательной программы}
+		\centerline{«Программная Инженерия»}
+		\centerline{профессор, канд. техн. наук}
+}}{В. В. Шилов}
+\titleName{Клиент-Серверное Android-Приложение для Управления Скидками в Розничных Сетях}
+\workTypeId{RU.17701729.506900 81 01-1}
 
 \titleSubname{Пояснительная записка}
 

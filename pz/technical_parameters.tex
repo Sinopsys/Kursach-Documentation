@@ -4,472 +4,256 @@
 Задании.
 
 \bigskip
-Задачи работы:
+Задачи работы (Андроид-клиент):
 
 \smallskip
 \begin{my_enumerate}
-\item Реализовать возможность игры в режиме Virtual Reality
-\item Реализовать возможность игры в режиме Normal Mode
-\item Реализовать возможность передвижения персонажа без задействования 
-элементов управления Cardboard'a
-\item Реализовать возможность взятия предметов без без задействования 
-элементов управления Cardboard'a
-\item Реализовать возможность бросить предмет без без задействования 
-элементов управления Cardboard'a
-\item Реализовать проигрывание звука ходьбы персонажа, звук взятия предметов, 
-открытия/закрытия двери, ветра
-\item Реализовать показ текста пользователю для отображения необходимой на 
-конкретный момент времени информации
-\item Реализовать логику головоломок, цепочка решений которых приведет к ключу
-\item Реализовать обучающий фрагмент в начале игры, содержащий руководство 
-пользователя по управлению в игре
+\item Реализовать возможность просмотра списка доступных магазинов с акционными товарами
+\item Реализовать представление текущих акций для конкретного магазина:
+    \begin{my_enumerate}
+    \item В виде общего списка
+    \item По категориям
+    \end{my_enumerate}
+\item Реализовать постепенную загрузку товаров магазинов (по страницам) для экономии трафика и меньшей нагрузкой на мобильное устройство
+\item Реализовать регистрацию через мобильное приложение
+\item Реализовать вход в аккаунт через мобильное приложение
+\item Реализовать возможность смены аккаунта
+\item Реализовать возможность создания списков покупок c разными названиями
+\item Реализовать возможность удаления списка покупок
+\item Реализовать возможность добавления товара в список покупок
+\item Реализовать возможность удаления товара из списка покупок
+\item Реализовать возможность добавления в список покупок пользовательских товаров, котороых нет в магазине (см. терминологию)
+\item Реализовать возможность просмотра подобранных программой товаров согласно запросу пользователя
+\item Реализовать добавление подобранных товаров в список покупок
+\item Реализовать предварительное отображение элементов каждого списка покупок до их открытия
+\item Реализовать отображение всплывающих подсказок при долгом нажатии на элементы управления button (кнопка)
+\item Реализовать перенаправление в настройки сети для последующего включения интернета при отсутствии интернет-соединения
+\item Реализовать отображение индикатора процесса загрузки данных с сервера
+\item Реализовать обучающий фрагмент в разделе help (см. терминологию), содержащий руководство пользователя по управлению программой
 \end{my_enumerate}
 
+Задачи работы (серверная часть):
 
-\subsection{Описание правил игры}
+\smallskip
+\begin{my_enumerate}
+    \item Реализовать crawling веб-страниц для сбора актуальной информации об акционных товарах
+    \item Реализовать добавление товаров в базу данных посредством отправки запросов REST API (REST API и база данных реализованы напарником)
+    \item Реализовать запись акционных товаров со всех магахинах в JSON файл
+    \item Реализовать email уведомления администраторам сервиса об ошибках и неполадках в работе сервера
+\end{my_enumerate}
 
-\tab[0.75cm]Данная игра спроектирована в жанре \textbf{escape the room} (см. 
-Приложение - 
-Терминология). В таких играх необходимо выбраться из запертого помещения при 
-помощи средств, находящихся в самой комнате. Обычно в них есть 
-последовательность головоломок, решение которых постепенно приводит к ключу, с 
-помощью которого можно будет отпереть дверь и выбраться. Соответственно, 
-конечной целью игры является выход из запертого дома при помощи найденного 
-ключа.
 
 \subsection{Описание алгоритма и функционирования программы}
 
-\subsubsection{Описание построения игры}
-В игре задумано три сцены:
+\subsubsection{Описание построения Андроид приложения}
+В андроид приложении задумано 4 активности (см. терминологию) и 2 фрагмента (см. терменологию)\\
 \begin{my_enumerate}
-    \item \textbf{ModChooser} Сцена для выбора режима. Является самой первой 
-    сценой, которая загружается всегда в Normal Mode. В ней всего 2 кнопки для 
-    выбора режима: <<VR Mode>> и <<Normal Mode>>. После нажатия на одну из них, 
-    все последующие сцены будут загружаться в выбранном режиме.
-    \item \textbf{TransitScene} Сцена, в которой происходит обучение игрока 
-    игровой механике и повествуется вкратце сюжет и цель игры. В этой сцене 
-    игрок перемещается в дом, в котором будет происходить основная часть игры.
-    \item \textbf{HouseInside1} Главная сцена со всеми головоломками. Здесь 
-    происходят основные действия: игрок обнаруживает себя запертым внутри дома 
-    и решает найти ключ чтобы выбраться. Для этого ему предстоит решить цепочку 
-    головоломок, после решения которых он получит ключ и сможет выбраться из 
-    заперти.
+    \item \textbf{LoginActivity} Рис \ref{login_activity}. Активность,
+        формирующая интерфейс входа пользователя в систему. Является самой
+        первой ативностью, которая загружается всегда при запуске приложения,
+        но если пользователь до этого момента уже входил в свой аккаунт, его
+        данные сохранены в shared preferences (см. терминологию) и эта
+        активность опускается. В этой активности 2 поля для ввода текста
+        (логина и пароля) и 3 кнопки (войти, зарегистрироваться и продолжить
+        использование без входа в аккаунт);
+    \item \textbf{RegisterActivity} Рис \ref{register_activity}.  Активность
+        для регистрации пользователя.  Имеет 2 поля для ввода текста (логинa и
+        пароля), и 2 кнопки: ``Зарегистрироваться'' (для новых пользователей) и
+        ``Войти'' (для пользователей, уже имеющих аккаунт). Пользователь также
+        может вернуться в активность для входа в систему посредством нажатия
+        систесной кнопки ``назад'';
+        \begin{figure}[h!]
+            \centering
+            \minipage{0.45\textwidth}
+            \includegraphics[height=0.42\textheight]{./screenshots/3/login.jpg}
+            \caption{\small{Активность для входа в аккаунт пользователя}}
+            \label{login_activity}
+            \endminipage\hfill
+            \minipage{0.45\textwidth}
+            \includegraphics[height=0.42\textheight]{./screenshots/3/register.jpg}
+            \caption{\small{Активность для регистрации аккаунта пользователя}}
+            \label{register_activity}
+            \endminipage
+        \end{figure}
+    \item \textbf{MainActivity} Главная активность, содержащая 2 дочерних
+        фрагмента, toolbar и BottomNavigationView (см. терминологию).\\
+        Фрагменты:
+        \begin{my_enumerate}
+            \item \textbf{HomeFragment} Рис \ref{home_fragment}. Фрагмент, содержащий список всех
+                товаров. Список может быть отфильтрован по магазинам и по
+                категориям. Содержит toolbar, в котором есть выпадающий список
+                для выбора магазина, кнопка для выхода/входа из/в аккаунт(а), и
+                меню опций;
+            \item \textbf{ShopListsPreviewFragment} Рис \ref{shoplist_fragment}. Фрагмент, содержащий список
+                всех списков покупок. Списки покупок упорядочены в виде
+                карточек с предпросмотром в них добавленных товаров магазина и
+                пользовательских товаров. Нажатие по одному из них открывает
+                активность ShopListActivity, содержащюю подробную информацию об
+                элементах списка покупок. Долгое нажатие по одному из списков
+                вызовет диалоговое окно, в котором спросится подтверждение
+                намерения удалить данный список покупок. В элементе toolbar в
+                этом фрагменте есть кнопка для входа/выхода в/из аккаунт(а), и
+                кнопка для добавления нового списка покупок. Использование
+                фрагмента не доступно неавторизованным пользователям;
+        \end{my_enumerate}
+        \begin{figure}[h!]
+            \centering
+            \minipage{0.45\textwidth}
+            \includegraphics[height=0.42\textheight]{./screenshots/3/home.jpg}
+            \caption{\small{MainActivity. Фрагмент со списком товаров магазинов}}
+            \label{home_fragment}
+            \endminipage\hfill
+            \minipage{0.45\textwidth}
+            \includegraphics[height=0.42\textheight]{./screenshots/3/all_shoplists.jpg}
+            \caption{\small{MainActivity. Фрагмент со всеми списками покупок}}
+            \label{shoplist_fragment}
+            \endminipage
+        \end{figure}
+    \item \textbf{ShopListActivity} Рис \ref{shoplist1}, рис \ref{shoplist2}. Активность, содержащая подробную информацию
+        о конкретном списке покупок. В элементе toolbar отображается кнопка
+        ``назад'', название списка покупок, и итоговая сумма по всем товарам, в
+        стандартной для товаров валюте. В центре активности расположен список
+        товаров магазина, а под ним - список пользовательских товаров. В свою
+        очередь, каждый пользовательский товар содержит список подобранных
+        товаров под данный из магазинов. Использование активности не доступно
+        неавторизованным пользователям
+\begin{figure}[h!]
+    \centering
+    \minipage{0.45\textwidth}
+    \includegraphics[height=0.42\textheight]{./screenshots/3/shoplist.jpg}
+    \caption{\small{ShopListActivity}}
+    \label{shoplist1}
+    \endminipage\hfill
+    \minipage{0.45\textwidth}
+    \includegraphics[height=0.42\textheight]{./screenshots/3/shoplist_custom_fold.jpg}
+    \caption{\small{ShopListActivity. Показаны соотретствующие пользовательскому товару товары их магазинов}}
+    \label{shoplist2}
+    \endminipage
+\end{figure}
 \end{my_enumerate}
 
+\subsubsection{Описание построения crawler'a}
 
-\subsubsection{Переключение между VR Mode и Normal Mode}
+В crawler'e веб-страниц магазинов предусмотрены следующие модули:
+spiders/dixy\_spider, spiders/perekrestok\_spider, text\_processor,
+dixy\_selectors, perekrestok\_selectors, settings, config, notify и pipelines.\\
+\begin{my_enumerate}
+    \item \textbf{dixy\_spider} описывает класс DixySpider, унаследованный от
+        Scrapy.Spider. Отвечает за получение исходного кода страницы магазина
+        ``Дикси'', его парсинга при помощи ``модульных'' css селекторов (см.
+        терминологию), перехода по страницам на сайте. Формирует объекты классы
+        DixyItem и передаёт далее модулю pipelines на обработку;
+    \item \textbf{perekrestok\_spider} описывает класс PerekrestokSpider,
+        функционал идентичен DixySpider, но действует на сайте магазина
+        ``Перекресток'';
+    \item \textbf{text\_processor} содержит функции обработки текста при помощи
+        регулярных выражений и базовых операций со строками;
+    \item \textbf{dixy/perekrestok selectors} содержат соответствующие xpath
+        селекторы для веб-страниц магазинов. Выделение этой логики в отдельный
+        модуль - корневая причина модульности приложения. В случае изменения
+        дизайна сайта, кроулинг которого происходит, админимтратору придётся
+        изменить лишь одну строчку для одного элемента на странице;
+    \item \textbf{settings, config} содержат настройки и конфигурацию кроулера;
+    \item \textbf{pipelines} содержит методы для обработки объектов DixyItem и
+        PerekrestokItem. Модуль так же совершает POST запрос на сервер
+        приложения для добавления товара в базу данных, и сохраняет все объекты
+        в JSON файл
+\end{my_enumerate}
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.8\textwidth]{./screenshots/modes.jpg}
-    \caption{\small{меню переключения режима}}
-    \label{modes}
-\end{figure}
+\subsection{Ежедневное обновление акций}
+Процесс ежедневного обновления акций необходимо проводить, чтобы акции в приложении всегда были актуальными.
 
-\tab[0.75cm]В любой VR сцене есть объект GvrViewerMain. Этот prefab содержит 
-скрипт GvrViewer, который контролирует параметры VR mode. При помощи изменения 
-параметра VRModeEnabled на true или false, VR mode будет включен/ выключен 
-соответственно. По скольку каждая сцена загружается по умолчанию в VR mode, 
-надо запоминать выбор пользователя в начале и при каждой загрузке последующих 
-сцен выставлять выбранный режим. Для этого был написан скрипт ModChanger.cs, 
-который запоминает выбор игрока.
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.8\textwidth]{./screenshots/diff.jpg}
-	\caption{\small{разница между VR Mode (сверху) и Normal Mode (снизу)}}
-	\label{diff}
-\end{figure}
-\newpage
-\subsubsection{Передвижение игрока без триггера}
-\tab[0.75cm]В VR играх передвижение игрока может происходить различными методами. Например, 
-есть способ, в котором при нажатии триггера, начинается движение в сторону 
-взгляда персонажа, при следующем нажатии на триггер, движение останавливается. 
-Поскольку одной из главных задач проекта была разработать игру, в которой не 
-задействуется триггер (для совместимости со всеми видами Cardboard), то была 
-разработана система передвижения "взглядом".
-
-\newpage
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.7\textwidth]{./pics/vrAngles.png}
-    \caption{\small{передвижение при помощи угла взгляда}}
-    \label{move_angles}
-\end{figure}
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.8\textwidth]{./pics/angles.png}
-    \caption{\small{расположение осей в виртуальной реальности}}
-    \label{axes}
-\end{figure}
-
-На схеме(рис. \ref{move_angles}) видно, что при достижении угла от 30\degr до 80\degr по оси Х (см. 
-рис. \ref{axes})
-происходит движение игрока. Движение происходит в сторону направления взгляда 
-(вперед).
-
-Ниже приведен Update метод скрипта WalkByLook.cs. Любой Update метод в юнити вызывается раз за фрейм.
-
-\begin{small}
-	\begin{verbatim}
-void Update()
-{
-    shouldMove = false;
-    mustLookToTheObject = GazeInputModule.pointingAt != null;
-    if (mustLookToTheObject && GazeInputModule.pointingAt.Count > 0)
-        lookingToObject = (((bool)GazeInputModule.pointingAt[1] && 	(float)GazeInputModule.pointingAt[2] >= 4F)
-        || !((bool)GazeInputModule.pointingAt[1]));
-
-    moveForward = (vrCam.eulerAngles.x >= angle1 && vrCam.eulerAngles.x <= angle2);
-
-    if (moveForward && (!mustLookToTheObject || (mustLookToTheObject && lookingToObject)))
-    {
-        shouldMove = true;
-        Vector3 forward = vrCam.TransformDirection(Vector3.forward);
-        cc.SimpleMove(forward * speed);
-        if (!playing)
-            StartCoroutine(PlaySteps());
-    }
-}
-	\end{verbatim}
-\end{small}
-
-
-\subsubsection{Взаимодействие предметов без триггера}
-
-\tab[0.75cm]В VR играх взаимодействие с предметами происходит различными методами. Например, при нажатии на триггер, предмет перемещается в руку персонажа или перемещается в инвентарь. Поскольку одной из главных задач проекта была разработать игру, в которой не 
-задействуется триггер (для совместимости со всеми видами Cardboard), то была 
-разработана система взаимодействия с объектами "взглядом".
-
-При наведении reticle (прицела) на объект, над которым может быть совершено действие, полоса загрузки внизу экрана активируется и по ее заполнению произойдет действие над объектом. Это может быть, например, взятие его в руку (см рис. \ref{pick_stone}, рис. \ref{picked_stone}).
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.6\textwidth]{./screenshots/pick_stone1.jpg}
-	\caption{\small{ожидание выполнения действия над объектом камень}}
-	\label{pick_stone}
-\end{figure} 
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.8\textwidth]{./screenshots/picked_stone1.jpg}
-	\caption{\small{результат выполнения действия над объектом - камень в руке}}
-	\label{picked_stone}
-\end{figure} 
-
-\tab[0.75cm]Поскольку при взгляде на объект часто бывает, что угол наклона камеры попадает в приемлемую для передвижения зону(от 30\degr до 80\degr), то в скрипте WalkByLook.cs предусмотрена остановка передвижения при взгляде на объект, над которым можно совершить действие. Это позволяет брать предметы "на ходу". 
-
-\subsubsection{Перемещение предметов в руку}
-
-\tab[0.75cm]Поднятый предмет перемещается в руку путем изменения его положения на равное положению руке. Рука - невидимый игровой объект, расположенный относительно персонажа (подсвечен фиолетовым) как на рис. \ref{hand}. Относительно игрока рука расположена как на рисунке \ref{picked_stone}.
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.8\textwidth]{./screenshots/hand.png}
-	\caption{\small{расположение руки относительно персонажа (подсвечен фиолетовым)}}
-	\label{hand}
-\end{figure} 
-
-За процесс поднятия предмета отвечает скрипт PickUpObject. При вызове метода MoveToPlayersHand() предмет, к которому прикреплен скрипт переместится в руку персонажа. Так же здесь сохраняются исходные пропорции объекта, поскольку при изменении родителя (а тут объект переходит от одного родителя к handMountingPosition) меняются пропорции объекта (особенность Unnity). Пока предмет находится в руке у него отключаются RigidBody и Collider для предотвращения столкновения с окружающей средой. В последствии при броске предмета они включаются обратно. В дополнение к этому у каждого предмета в этом скрипте задана позиция и вращение руки, которое необходимо ей придать при поднятии объекта (handPosition и handRotation). Это нужно для того, чтобы предмет, например, ключ, не был направлен обратной стороной к двери при попытки открыть ее им. Ниже приведен метод MoveToPlayersHand(). Этот скрипт также отвечает за проигрывание звука взятия предмета.
-
-\begin{small}
-	\begin{verbatim}
-    public void MoveToPlayersHand()
-    {
-        if (!pickedUp)
-        {
-            vrCam.parent.GetComponents<AudioSource>()[0].Play();
-            oldScale = gameObject.transform.localScale;
-            gameObject.transform.parent = handMountingPosition;
-            gameObject.GetComponent<Rigidbody>().useGravity = false;
-            gameObject.GetComponent<Rigidbody>().isKinematic = true;
-            gameObject.GetComponent<Collider>().enabled = false;
-            gameObject.GetComponent<Rigidbody>().constraints = new RigidbodyConstraints();
-            gameObject.transform.localScale = oldScale;
-            
-            gameObject.transform.localPosition = new Vector3(0F, 0F, 0F);
-            gameObject.transform.localRotation = Quaternion.Euler(0F, 0F, 0F);
-            handMountingPosition.localRotation = Quaternion.Euler(handRotation);
-            handMountingPosition.localPosition = handPosition;
-            handMountingPosition.localScale = new Vector3(1F, 1F, 1F);
-        }
-    }
-	\end{verbatim}
-\end{small}
-
-
-Этот же скрипт отвечает за бросание предметов. При положении камеры (головы игрока) от 275\degr до 303\degr вызывается метод ThrowObject(), его код приведен ниже. В нем проигрывается аудио бросания предмета, включаются RigidBody и Collider у объекта и родителем становится null.
+На сервере запущена cron job (см. терминологию), котрая каждый день в 2:00 ночи в 6:00 утра запускает процесс кроулинга акций во всех магазинах:
 
 \begin{small}
     \begin{verbatim}
-    public void ThrowObject()
-    {
-        if (pickedUp && handMountingPosition.GetChild(0).name.CompareTo(gameObject.name) == 0)
-        {
-            vrCam.parent.GetComponents<AudioSource>()[0].Play();
-            gameObject.GetComponent<Rigidbody>().useGravity = true;
-            gameObject.GetComponent<Rigidbody>().isKinematic = false;
-            gameObject.GetComponent<Collider>().enabled = true;
-            gameObject.transform.parent = null;
-            gameObject.transform.localScale = oldScale;
-        }
-    }
+         00 2,6 * * * cd /home/hes/Projects/crawler/easysales && ./crawl_all.sh > /home/hes/crawler.log 2>&1
     \end{verbatim}
 \end{small}
 
-\subsubsection{Модификация исходников Google VR SDK}
+Скрипт crawl\_all.sh отвечает за поочередный запуск всех spider'ов. Далее, по
+цепочке, спайдеры собирают данные с сайтов при помощи xpath селекторов,
+используют модуль text\_processor для очистки собранных данных от non-breaking
+space символов, длинных пробелов и других символов. Формируются <Shop>Items,
+которые затем отправляются в модуль pipelines. Классы <Shop>Items, процесс
+добавления Item'a в базу и модель с селекторами для магазина ``Перекресток''
+описаны ниже.
 
-\tab[0.75cm]В процессе написания программы были выявлены проблемы при использовании скрипта GazeInputModule, предоставляемым в SDK от Google для VR приложений. Проблема заключалась в том, когда камера светит лучем вперед для того чтобы получить первый объект, который он ударит, он упирался в самого персонажа и видел дальше него лишь иногда (непредсказуемое поведение). См. рис. \ref{problem}.
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.5\textwidth]{./screenshots/problem1.png}
-    \caption{\small{Debug режим. Проблема при использовании оригинального скрипта от Google GazeInputModule.cs. Слева - до, справа - после внесения модификаций в скрипт.)}}
-    \label{problem}
-\end{figure} 
-
-
-Изменения приняли следующий вид. В методе CastRayFromGaze(), который <<стреляет лучем>>, чтобы получить объект, на который в данный момент указывает камера, был добавлен следующий код:
+Классы DixyItem и PerekrestokItem унаследованы от EasySalesItem, базового
+товара приложения. Его поля всегда заполнены, то есть не могут иметь значения
+null.
 
 \begin{small}
     \begin{verbatim}
-    ...
-    if (pointerData.pointerCurrentRaycast.gameObject != null)
-        if (pointerData.pointerCurrentRaycast.gameObject.name.CompareTo("Character") == 0)
-            if (m_RaycastResultCache.Count > 1)
-                pointerData.pointerCurrentRaycast = m_RaycastResultCache[1];
-            else
-        pointerData.Reset();
-    ...
+class EasySalesItem(scrapy.Item):
+    name = scrapy.Field()
+    newPrice = scrapy.Field()
+    imageUrl = scrapy.Field()
+    shopId = scrapy.Field()
+    crawlDate = scrapy.Field()
+
+
+class DixyItem(EasySalesItem):
+    category = scrapy.Field()
+    oldPrice = scrapy.Field()
+    discount = scrapy.Field()
+    dateIn = scrapy.Field()
+    dateOut = scrapy.Field()
+    condition = scrapy.Field()
+
+
+class PerekrestokItem(EasySalesItem):
+    category = scrapy.Field()
+    oldPrice = scrapy.Field()
     \end{verbatim}
 \end{small}
 
-После того, как был взят первый объект, с которым столкнулся луч, он проверяется на равенство null. Затем, если это сам персонаж, то берется следующий объект за персонажем, который ударила камера. На рисунке \ref{problem} видно, что после внесения изменений, камера стала видеть весь Collider формы прямоугольного параллелепипеда корректно. 
+Отправка объекта класса Item в базу данных происходит при помощи API запроса на
+сервер:
 
-Далее, при условии, что текущий GameObject не null, формируется статичесикй массив pointingAt из трех объектов для получения дополнительных данных из просвечивания объектов лучем:
-\begin{itemize}
-    \item [0] - сам GameObject
-    \item [1] - hasEventTrigger. Интерактивный ли это объект. В зависимости от этого параметра определяется будет ли происходить взаимодействие с объектом или нет
-    \item [2] - distance. Расстояние до объекта
-\end{itemize}
 
 \begin{small}
     \begin{verbatim}
-    float distance = Vector3.Distance(pointerData.pointerCurrentRaycast.gameObject.transform.position, vrCam.transform.position);
-    bool hasEventTrigger = pointerData.pointerCurrentRaycast.gameObject.GetComponent<EventTrigger>()s
-     as EventTrigger != null;
-    
-    pointingAt.Add(pointerData.pointerCurrentRaycast.gameObject);
-    pointingAt.Add(hasEventTrigger);
-    pointingAt.Add(distance);
+class DataBaseWriterPipeLine(object):
+
+    def process_item(self, item, spider):
+        requests.post(const['ADD_ITEM_API'],
+                      data=json.dumps(dict(item)),
+                      headers=const['REQUEST_HEADERS'])
+        return item
     \end{verbatim}
 \end{small}
 
-Далее, было решено сделать объекты интерактивными на определенном расстоянии. Поскольку неправильно и не логично было бы взаимодействовать с объектом, который находится в одном углу комнаты, находясь в другом. Поэтому было выбрано расстояние 4.35. Дальше него камера пусть и пускает лучи, но в результат ничего не записывает. 
+Xpath селекторы для магазина ``Перекресток''. Модульность и простота использования написанного фрагмента кода достигается тем, что при изменении дизайна сайта магазина, возникает необходимость исправить всего несколько строчек в приведённом фрагменте. Таким образом, частично решается проблема всех кроулеров - поломка, в случае изменения дизайна сайта. А поскольку большинство кроулеров не используют такой модульный подход, времени и сил на починку уходит гораздо больше, так как приходится править множество файлов во многих местах.
 
 \begin{small}
     \begin{verbatim}
-    
-    ...
-    if (!(distance <= 4.35F && hasEventTrigger))
-    {
-    pointerData.pointerCurrentRaycast = new RaycastResult();
-    m_RaycastResultCache.Clear();
-    }
-    ...
+# Start urls.
+#
+URLS = ['https://www.perekrestok.ru/catalog']
+URL_CORE = 'https://perekrestok.ru'
+
+# Categiries.
+#
+CATEGORIES = '//a[@class="xf-catalog-categories__link"]/@href'
+CATEGORIES_TEXT = '//span[@class="xf-catalog-categories__text"]/text()'
+POST_CATEGORY = '//span[@class="xf-breadcrumbs__current"]/text()'
+CURRENT_CATEGORY = '//h1[@class="xf-caption__title"]/text()'
+
+ROOT_NODE = '//ul[@id="catalogItems"]'
+ITEM = 'li/div[contains(@class, "xf-product")]'
+
+# Item attributes.
+#
+NAME = 'div[@class="xf-product__title xf-product-title"]/a[@class="xf-product-\
+title__link js-product__title"]/text()'
+IMG = 'figure/a/img/@data-src'
+NEW_PRICE = 'div/div[contains(@class, "xf-product-cost__current")]/@data-cost'
+OLD_PRICE = 'div/div[contains(@class, "xf-price xf-product-cost__prev")]/@data-cost'
+
+# Pagination selector.
+#
+# next_page = '//li[@class="next"]/a/@href'
+NEXT_PAGE = '//a[contains(@class, "xf-paginator__item js-paginator__next")]/@href'
     \end{verbatim}
 \end{small}
-
-
-\subsubsection{Описание головоломок внутри комнаты}
-\tab[0.75cm]Конечная цель игры - найти ключ от двери и выбраться из заперти. Ключ игроку открывается после решения головоломки с цифрами на правой книжной полке. Код от нее спрятан за картиной, которая висит справа от второй кровати и появляется после решения головоломки с колокольчиками. Чтобы решить головоломку с колокольчиками, необходимо чтобы на стене между двумя кроватями висели все 5 колокольчиков. Намек на это есть в записке на столе. Один колокольчик можно найти в котле справа от входа, второй висит над входной дверью, его необходимо открутить при помощи отвертки, которая находится на левой книжной полке. 
-
-Откручивание отверткой колокольчика реализовано в скрипте Uscrew.cs, его код:
-
-
-\begin{small}
-    \begin{verbatim}
-    bool unscrewed = false, hasScrewDriver = false;
-    public Transform handMountingPosition;
-
-    void Update()
-    {
-        if (handMountingPosition.childCount > 0)
-            hasScrewDriver = handMountingPosition.GetChild(0).name.Contains("ScrewDriver");
-    }
-    
-    public void PointerClick()
-    {
-        if (!unscrewed && hasScrewDriver)
-        {
-            gameObject.SetActive(false);
-            gameObject.GetComponent<BoxCollider>().enabled = false;
-            GameObject.Find("InnerBell").GetComponent<Rigidbody>().constraints = new RigidbodyConstraints();
-            unscrewed = true;
-        }
-    }
-    \end{verbatim}
-\end{small}
-
-В Update() проверяется наличие отвертки в руке персонажа, а в PointerClick() у колокольчика отключаются constraints, что держат его на месте, и он падает (рис. \ref{full_unscrew}).
-
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.8\textwidth]{./screenshots/full_unscrew.jpg}
-    \caption{\small{откручивание колокольчика при помощи отвертки. Сверху - сам процесс, снизу - результат.}}
-    \label{full_unscrew}
-\end{figure} 
-
-Когда все 5 колокольчиков висят на месте, сразу же начнется следующая головоломка. Основная и самая сложная. Заключается она в том, что сначала проигрывается последовательность (5 раз бьют по разным колокольчикам), а затем, игрок должен ее повторить, ударив по тем же колокольчикам, что были показаны.
-
-За данную головоломку отвечает скрипт BellPuzzleLogic.cs. Сначала показывается паттерн сгенерированной последовательности, затем игрок может начинать вводить свою. При очередном неверном выборе колокольчика, подается звуковой сигнал, значащий, что был сделан неверный выбор и произойдет показ паттерна снова.
-
-При верном вводе всей последовательности подается особый звуковой сигнал, означающий, что задание пройдено. Производится визуальный переход ко второму. Появляется и подсвечивается фиолетовыми частицами картина справа (рис. \ref{pic}).
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.8\textwidth]{./screenshots/pic.jpg}
-    \caption{\small{появившаяся картина после завершения задания с колокольчиками.}}
-    \label{pic}
-\end{figure} 
-
-
-За картиной находится код. Игрок  должен запомнить его. Рис (\ref{code}).
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.8\textwidth]{./screenshots/code.jpg}
-    \caption{\small{код дл финальной головоломки за картиной.}}
-    \label{code}
-\end{figure} 
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.8\textwidth]{./screenshots/last_code.jpg}
-    \caption{\small{ввод кода для получения ключа.}}
-    \label{last_code}
-\end{figure} 
-
-\newpage
-Финальная задача состоит в том, чтобы ввести полученный код в поле, находящееся на правом книжном шкафу. 
-В скрипте LastPuzzleLogic.cs расположен код для последней задачи. Здесь при вводе очередной цифры пользователем последовательность проверяется на соответствие правильному ключу:
-
-\begin{small}
-    \begin{verbatim}
-void Start()
-{
-    solved = false;
-    numbers = new char[7];
-}
-
-void Update()
-{
-    if (!solved)
-    {
-        int i = 0;
-        foreach (Transform child in transform)
-        {
-            numbers[i] = child.GetComponent<TextMesh>().text[0];
-            ++i;
-        }
-        
-        if (new String(numbers).CompareTo(key) == 0)
-        {
-            solved = true;
-            Key.SetActive(true);
-            Key.GetComponent<Rigidbody>().constraints = new RigidbodyConstraints();
-            gameObject.SetActive(false);
-        }
-    }
-}
-    \end{verbatim}
-\end{small}
-
-Когда игрок ввел верную последовательность, ему выдается ключ, при помощи которого он может отпереть дверь.
-
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.8\textwidth]{./screenshots/found_key.jpg}
-    \caption{\small{получение ключа.}}
-    \label{found_key}
-\end{figure} 
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.8\textwidth]{./screenshots/opening_door.jpg}
-    \caption{\small{открытие двери.}}
-    \label{opening_door}
-\end{figure} 
-
-В скрипте KeyDoorOpener.cs содержится логика открытия двери и загрузки внешнего (снаружи дома) окружения. Изначально оно было отключено из соображений ресурсоэффективности и временных требований к программе. Объекты, которые игрок не наблюдает, не должны прорисовываться. Так же скрипт проигрывает звук отпирания замка, открытия двери.
-
-\begin{small}
-    \begin{verbatim}
-public GameObject door, final;
-private static bool opened = false;
-private float timeToOpen = 1F;
-public Transform handMountingPosition;
-
-void Start()
-{
-    opened = false;
-    gameObject.GetComponent<BoxCollider>().enabled = false;
-}
-
-void Update()
-{
-    if (handMountingPosition.childCount > 0)
-    gameObject.GetComponent<BoxCollider>().enabled = (handMountingPosition.GetChild(0).name.CompareTo("Key") == 0);
-}
-
-public void PointerClick()
-{
-    StartCoroutine(LoadFinalScene());
-    StartCoroutine(OpenDoor());
-}
-
-private IEnumerator LoadFinalScene()
-{
-    final.SetActive(true);
-    yield return null;
-}
-
-private IEnumerator OpenDoor()
-{
-    if (!opened)
-    {
-        // play unlock sound
-        gameObject.GetComponents<AudioSource>()[0].Play();
-        // show input Key and disable current holding Key
-        transform.GetChild(0).gameObject.SetActive(true);
-        handMountingPosition.GetChild(0).gameObject.SetActive(false);
-        yield return new WaitForSeconds(1F);
-        transform.GetChild(0).gameObject.SetActive(false);
-        transform.GetChild(1).gameObject.SetActive(true);
-        gameObject.GetComponents<AudioSource>()[1].Play();
-        door.GetComponent<Animation>().Play();
-        OpenDoorAndLoadScene.opened = opened = true;
-        yield return new WaitForSeconds(timeToOpen);
-    }
-}
-
-\end{verbatim}
-\end{small}
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.8\textwidth]{./screenshots/final.jpg}
-    \caption{\small{финал игры.}}
-    \label{final}
-\end{figure} 
-
-По завершении игры, пользователю будет показано благодарственное сообщение с приглашением пройти игру заново. Происходит этот показ по столкновению персонажа с невидимым объектом, который и вызывает показ.
-
-
-
-
-
