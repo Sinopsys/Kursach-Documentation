@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{p}{\PYGZob{}}
+    \PYG{n+nt}{\PYGZdq{}username\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Имя пользователя\PYGZdq{}}\PYG{p}{,}
+    \PYG{n+nt}{\PYGZdq{}password\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Пароль\PYGZdq{}}
+  \PYG{p}{\PYGZcb{}}
+\end{Verbatim}
