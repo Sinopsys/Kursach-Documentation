@@ -1,0 +1,29 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{[}
+    \PYG{p}{\PYGZob{}}
+        \PYG{n+nt}{\PYGZdq{}id\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{17}\PYG{p}{,}
+        \PYG{n+nt}{\PYGZdq{}name\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Купить\PYGZdq{}}\PYG{p}{,}
+        \PYG{n+nt}{\PYGZdq{}items\PYGZdq{}}\PYG{p}{:} \PYG{p}{[}
+            \PYG{l+s+s2}{\PYGZdq{}Мыло Солнышко хозяйственное с ароматом лимона 140г\PYGZdq{}}\PYG{p}{,}
+            \PYG{l+s+s2}{\PYGZdq{}Крем\PYGZhy{}мыло жидкое Особая серия овсяное молочко, 1000 г\PYGZdq{}}
+        \PYG{p}{],}
+        \PYG{n+nt}{\PYGZdq{}customItems\PYGZdq{}}\PYG{p}{:} \PYG{p}{[}
+            \PYG{l+s+s2}{\PYGZdq{}Мыло\PYGZdq{}}
+        \PYG{p}{]}
+    \PYG{p}{\PYGZcb{},}
+    \PYG{p}{\PYGZob{}}
+        \PYG{n+nt}{\PYGZdq{}id\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{18}\PYG{p}{,}
+        \PYG{n+nt}{\PYGZdq{}name\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Чё купить\PYGZdq{}}\PYG{p}{,}
+        \PYG{n+nt}{\PYGZdq{}items\PYGZdq{}}\PYG{p}{:} \PYG{p}{[}
+            \PYG{l+s+s2}{\PYGZdq{}Мешок для мусора Фрекен БОК 35л 15шт\PYGZdq{}}\PYG{p}{,}
+            \PYG{l+s+s2}{\PYGZdq{}Сок Добрый Яблочный 2л\PYGZdq{}}\PYG{p}{,}
+            \PYG{l+s+s2}{\PYGZdq{}Сосиски Молочные Велком, 530 г\PYGZdq{}}\PYG{p}{,}
+            \PYG{l+s+s2}{\PYGZdq{}Нектар Добрый апельсиновый; мультифруктовый; персик\PYGZhy{}яблоко; груша; виноград\PYGZhy{}гранат; сок яблочный осветленный; томатный, 1 л\PYGZdq{}}
+        \PYG{p}{],}
+        \PYG{n+nt}{\PYGZdq{}customItems\PYGZdq{}}\PYG{p}{:} \PYG{p}{[}
+            \PYG{l+s+s2}{\PYGZdq{}сок\PYGZdq{}}\PYG{p}{,}
+            \PYG{l+s+s2}{\PYGZdq{}колбаса\PYGZdq{}}
+        \PYG{p}{]}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{]}
+\end{Verbatim}

@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{\PYGZob{}}
+    \PYG{n+nt}{\PYGZdq{}name\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Компот Д из персиков, 580 мл\PYGZdq{}}\PYG{p}{,}
+    \PYG{n+nt}{\PYGZdq{}category\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Консервы, соусы\PYGZdq{}}\PYG{p}{,}
+    \PYG{n+nt}{\PYGZdq{}oldPrice\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{137}\PYG{p}{,}
+    \PYG{n+nt}{\PYGZdq{}newPrice\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mf}{99.99}\PYG{p}{,}
+    \PYG{n+nt}{\PYGZdq{}dateIn\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}2018\PYGZhy{}04\PYGZhy{}02\PYGZdq{}}\PYG{p}{,}
+    \PYG{n+nt}{\PYGZdq{}dateOut\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}2018\PYGZhy{}04\PYGZhy{}08\PYGZdq{}}\PYG{p}{,}
+    \PYG{n+nt}{\PYGZdq{}crawlDate\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}2018\PYGZhy{}04\PYGZhy{}02\PYGZdq{}}\PYG{p}{,}
+    \PYG{n+nt}{\PYGZdq{}condition\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}\PYGZhy{}\PYGZdq{}}\PYG{p}{,}
+    \PYG{n+nt}{\PYGZdq{}image\PYGZdq{}}\PYG{p}{:} \PYG{k+kc}{null}\PYG{p}{,}
+    \PYG{n+nt}{\PYGZdq{}imageUrl\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}https://dixy.ru/upload/iblock/fe2/2000183687.jpg\PYGZdq{}}\PYG{p}{,}
+    \PYG{n+nt}{\PYGZdq{}discount\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}\PYGZhy{}27\PYGZdq{}}\PYG{p}{,}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

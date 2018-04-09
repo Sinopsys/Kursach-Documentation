@@ -1,0 +1,19 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{[}
+    \PYG{p}{\PYGZob{}}
+        \PYG{n+nt}{\PYGZdq{}id\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{565}\PYG{p}{,}
+        \PYG{n+nt}{\PYGZdq{}name\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Мороженое Жемчужина России эскимо миндаль\PYGZhy{}карамель, 80 г\PYGZdq{}}\PYG{p}{,}
+        \PYG{n+nt}{\PYGZdq{}category\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Кулинария, заморозка, мороженое\PYGZdq{}}\PYG{p}{,}
+        \PYG{n+nt}{\PYGZdq{}oldPrice\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mf}{52.9}\PYG{p}{,}
+        \PYG{n+nt}{\PYGZdq{}newPrice\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mf}{26.45}\PYG{p}{,}
+        \PYG{n+nt}{\PYGZdq{}dateIn\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}2018\PYGZhy{}03\PYGZhy{}15\PYGZdq{}}\PYG{p}{,}
+        \PYG{n+nt}{\PYGZdq{}dateOut\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}2018\PYGZhy{}03\PYGZhy{}28\PYGZdq{}}\PYG{p}{,}
+        \PYG{n+nt}{\PYGZdq{}crawlDate\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}2018\PYGZhy{}03\PYGZhy{}17\PYGZdq{}}\PYG{p}{,}
+        \PYG{n+nt}{\PYGZdq{}condition\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}\PYGZhy{}\PYGZdq{}}\PYG{p}{,}
+        \PYG{n+nt}{\PYGZdq{}image\PYGZdq{}}\PYG{p}{:} \PYG{k+kc}{null}\PYG{p}{,}
+        \PYG{n+nt}{\PYGZdq{}imageUrl\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}https://dixy.ru/upload/iblock/814/2000148579.jpg\PYGZdq{}}\PYG{p}{,}
+        \PYG{n+nt}{\PYGZdq{}discount\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}1+1\PYGZdq{}}\PYG{p}{,}
+        \PYG{n+nt}{\PYGZdq{}shopId\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{1}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{]}
+\end{Verbatim}

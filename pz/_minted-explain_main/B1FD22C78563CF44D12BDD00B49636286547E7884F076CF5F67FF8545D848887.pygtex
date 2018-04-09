@@ -1,0 +1,76 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{[}
+    \PYG{p}{\PYGZob{}}
+        \PYG{n+nt}{\PYGZdq{}id\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{17}\PYG{p}{,}
+        \PYG{n+nt}{\PYGZdq{}name\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Купить\PYGZdq{}}\PYG{p}{,}
+        \PYG{n+nt}{\PYGZdq{}items\PYGZdq{}}\PYG{p}{:} \PYG{p}{[}
+            \PYG{p}{\PYGZob{}}
+                \PYG{n+nt}{\PYGZdq{}id\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{294}\PYG{p}{,}
+                \PYG{n+nt}{\PYGZdq{}name\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Мыло Солнышко хозяйственное с ароматом лимона 140г\PYGZdq{}}\PYG{p}{,}
+                \PYG{n+nt}{\PYGZdq{}category\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Красота, гигиена, бытовая химия\PYGZdq{}}\PYG{p}{,}
+                \PYG{n+nt}{\PYGZdq{}oldPrice\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{0}\PYG{p}{,}
+                \PYG{n+nt}{\PYGZdq{}newPrice\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mf}{27.9}\PYG{p}{,}
+                \PYG{n+nt}{\PYGZdq{}dateIn\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}2018\PYGZhy{}03\PYGZhy{}30\PYGZdq{}}\PYG{p}{,}
+                \PYG{n+nt}{\PYGZdq{}dateOut\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}2018\PYGZhy{}04\PYGZhy{}20\PYGZdq{}}\PYG{p}{,}
+                \PYG{n+nt}{\PYGZdq{}crawlDate\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}2018\PYGZhy{}03\PYGZhy{}30\PYGZdq{}}\PYG{p}{,}
+                \PYG{n+nt}{\PYGZdq{}condition\PYGZdq{}}\PYG{p}{:} \PYG{k+kc}{null}\PYG{p}{,}
+                \PYG{n+nt}{\PYGZdq{}image\PYGZdq{}}\PYG{p}{:} \PYG{k+kc}{null}\PYG{p}{,}
+                \PYG{n+nt}{\PYGZdq{}imageUrl\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}https://perekrestok.ru/src/product.file/list/image/21/67/16721.jpeg\PYGZdq{}}\PYG{p}{,}
+                \PYG{n+nt}{\PYGZdq{}discount\PYGZdq{}}\PYG{p}{:} \PYG{k+kc}{null}\PYG{p}{,}
+                \PYG{n+nt}{\PYGZdq{}shop\PYGZdq{}}\PYG{p}{:} \PYG{p}{\PYGZob{}}
+                    \PYG{n+nt}{\PYGZdq{}id\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{2}\PYG{p}{,}
+                    \PYG{n+nt}{\PYGZdq{}alias\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}perekrestok\PYGZdq{}}\PYG{p}{,}
+                    \PYG{n+nt}{\PYGZdq{}name\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Перекресток\PYGZdq{}}
+                \PYG{p}{\PYGZcb{}}
+            \PYG{p}{\PYGZcb{},}
+            \PYG{p}{\PYGZob{}}
+                \PYG{n+nt}{\PYGZdq{}id\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{73880}\PYG{p}{,}
+                \PYG{n+nt}{\PYGZdq{}name\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Крем\PYGZhy{}мыло жидкое Особая серия овсяное молочко, 1000 г\PYGZdq{}}\PYG{p}{,}
+                \PYG{n+nt}{\PYGZdq{}category\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Непродовольственные товары\PYGZdq{}}\PYG{p}{,}
+                \PYG{n+nt}{\PYGZdq{}oldPrice\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mf}{89.9}\PYG{p}{,}
+                \PYG{n+nt}{\PYGZdq{}newPrice\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mf}{44.95}\PYG{p}{,}
+                \PYG{n+nt}{\PYGZdq{}dateIn\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}2018\PYGZhy{}04\PYGZhy{}02\PYGZdq{}}\PYG{p}{,}
+                \PYG{n+nt}{\PYGZdq{}dateOut\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}2018\PYGZhy{}04\PYGZhy{}08\PYGZdq{}}\PYG{p}{,}
+                \PYG{n+nt}{\PYGZdq{}crawlDate\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}2018\PYGZhy{}04\PYGZhy{}02\PYGZdq{}}\PYG{p}{,}
+                \PYG{n+nt}{\PYGZdq{}condition\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}\PYGZhy{}\PYGZdq{}}\PYG{p}{,}
+                \PYG{n+nt}{\PYGZdq{}image\PYGZdq{}}\PYG{p}{:} \PYG{k+kc}{null}\PYG{p}{,}
+                \PYG{n+nt}{\PYGZdq{}imageUrl\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}https://dixy.ru/upload/iblock/267/2000267119.jpg\PYGZdq{}}\PYG{p}{,}
+                \PYG{n+nt}{\PYGZdq{}discount\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}1+1\PYGZdq{}}\PYG{p}{,}
+                \PYG{n+nt}{\PYGZdq{}shop\PYGZdq{}}\PYG{p}{:} \PYG{p}{\PYGZob{}}
+                    \PYG{n+nt}{\PYGZdq{}id\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{1}\PYG{p}{,}
+                    \PYG{n+nt}{\PYGZdq{}alias\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}dixy\PYGZdq{}}\PYG{p}{,}
+                    \PYG{n+nt}{\PYGZdq{}name\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Дикси\PYGZdq{}}
+                \PYG{p}{\PYGZcb{}}
+            \PYG{p}{\PYGZcb{}}
+        \PYG{p}{],}
+        \PYG{n+nt}{\PYGZdq{}customItems\PYGZdq{}}\PYG{p}{:} \PYG{p}{[}
+            \PYG{p}{\PYGZob{}}
+                \PYG{n+nt}{\PYGZdq{}id\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{24}\PYG{p}{,}
+                \PYG{n+nt}{\PYGZdq{}name\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Мыло\PYGZdq{}}\PYG{p}{,}
+                \PYG{n+nt}{\PYGZdq{}shoplistId\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{17}\PYG{p}{,}
+                \PYG{n+nt}{\PYGZdq{}matchingItems\PYGZdq{}}\PYG{p}{:} \PYG{p}{[}
+                    \PYG{p}{\PYGZob{}}
+                        \PYG{n+nt}{\PYGZdq{}id\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{187}\PYG{p}{,}
+                        \PYG{n+nt}{\PYGZdq{}name\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Крем\PYGZhy{}мыло жидкое Dove Красота и уход 250мл\PYGZdq{}}\PYG{p}{,}
+                        \PYG{n+nt}{\PYGZdq{}category\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Красота, гигиена, бытовая химия\PYGZdq{}}\PYG{p}{,}
+                        \PYG{n+nt}{\PYGZdq{}oldPrice\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{0}\PYG{p}{,}
+                        \PYG{n+nt}{\PYGZdq{}newPrice\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{259}\PYG{p}{,}
+                        \PYG{n+nt}{\PYGZdq{}dateIn\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}2018\PYGZhy{}03\PYGZhy{}30\PYGZdq{}}\PYG{p}{,}
+                        \PYG{n+nt}{\PYGZdq{}dateOut\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}2018\PYGZhy{}04\PYGZhy{}20\PYGZdq{}}\PYG{p}{,}
+                        \PYG{n+nt}{\PYGZdq{}crawlDate\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}2018\PYGZhy{}03\PYGZhy{}30\PYGZdq{}}\PYG{p}{,}
+                        \PYG{n+nt}{\PYGZdq{}condition\PYGZdq{}}\PYG{p}{:} \PYG{k+kc}{null}\PYG{p}{,}
+                        \PYG{n+nt}{\PYGZdq{}image\PYGZdq{}}\PYG{p}{:} \PYG{k+kc}{null}\PYG{p}{,}
+                        \PYG{n+nt}{\PYGZdq{}imageUrl\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}https://perekrestok.ru/src/product.file/list/image/74/74/7474.jpeg\PYGZdq{}}\PYG{p}{,}
+                        \PYG{n+nt}{\PYGZdq{}discount\PYGZdq{}}\PYG{p}{:} \PYG{k+kc}{null}\PYG{p}{,}
+                        \PYG{n+nt}{\PYGZdq{}shop\PYGZdq{}}\PYG{p}{:} \PYG{p}{\PYGZob{}}
+                            \PYG{n+nt}{\PYGZdq{}id\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{2}\PYG{p}{,}
+                            \PYG{n+nt}{\PYGZdq{}alias\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}perekrestok\PYGZdq{}}\PYG{p}{,}
+                            \PYG{n+nt}{\PYGZdq{}name\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Перекресток\PYGZdq{}}
+                        \PYG{p}{\PYGZcb{}}
+                    \PYG{p}{\PYGZcb{}}
+                  \PYG{p}{]}
+            \PYG{p}{\PYGZcb{}}
+        \PYG{p}{]}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{]}
+\end{Verbatim}
