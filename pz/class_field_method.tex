@@ -1,168 +1,260 @@
-При программировании на Unity, каждый скрипт предсавляет собой отдельный класс, в котором, как правило, есть 2 метода: Start и Update. Start вызывается 1 раз при запуске скрипта, а Update вызывается 1 раз за фрейм. 
+Ниже приведены описания классов для Андроид клиента (Java)
 
-\subsection{WalkByLook}
+Классы и интерфейсы Java:
+
+\subsection{LoginActivity}
 Поля:\\
 \begin{small}
     \begin{verbatim}
-    public float angle1 = 30F, angle2 = 80F;
-    public float speed = 5F;
-    private bool moveForward;
-    private CharacterController cc;
-    public Transform vrCam;
-    private bool lookingToObject = false;
-    private bool mustLookToTheObject = false;
-    public AudioSource[] footSteps;
-    private bool shouldMove = false, playing = false;
+    private EditText etUsername;
+    private EditText etPassword;
+    private TextView tvRegister, tvHack;
+    private Button btnLogin;
+    private Button.OnClickListener btnLoginListener;
+    private SharedPreferences sharedPrefs;
+    private Map<String, String> userData;
     \end{verbatim}
 \end{small}
-Класс, созданный для передвижения игрока при помощи угла наклона головы по оси Х.
+Класс, отвечающий за отображение LoginActivity, проверку введённых данных и отправку запроса авторизации на сервер.
 
-\subsection{BellBehaviour}
+\subsection{MainActivity}
 Поля:\\
 \begin{small}
     \begin{verbatim}
-public Material bellHoverMaterial;
-public Material defaultBellMaterial;
-private AudioSource audioSrc;
+    private boolean doubleBackToExitPressedOnce = false;
+    private SwipeRefreshLayout swipeRefreshLayout;
+    private static final String TAG_FRAGMENT_ONE = "fragment_one";
+    private static final String TAG_FRAGMENT_TWO = "fragment_two";
+    private Shop selectedShop = null;
+    private View btnAdd;
+    private View btnLoginLogout;
+    public boolean homeActive = true;
+    public int currentPage = 1;
+    public String selectedCategory = "";
+    public int totalItemsCount;
+    public Parcelable itemsFragmentState;
+    public Parcelable shopListsPreviewFragmentState;
+    public ItemAdapter adapter;
+    public ShopListsPreviewAdapter shopListsPreviewAdapter;
+    public FetchData fetchData;
+    public List<Shop> shops;
+    public RequestQueue queue;
+    private FragmentManager fragmentManager;
+    public List<String> categories;
+    private int currentFragmentId;
     \end{verbatim}
 \end{small}
-Отвечает за поведение колокольчика при наведении на него reticle и нажатии (загрузки нижнего индикатора).
-\subsection{BellPuzzleLauncher}
+Основной класс программы, хранит состояния фрагментов, чтобы состояния прокрутки оставалась неизменной при переходе по фрагментам; запускает процессы отображения всех основных графических элементов, отвечает за логику перемещения внутри приложения и определяет поведение кнопки ``назад''.
+\subsection{RegisterActivity}
 Поля:\\
 \begin{small}
     \begin{verbatim}
-public Transform handMountingPosition;
-private bool hasBell = false;
-private float angle;
-public Transform vrCam;
-public GameObject bellPuzzle;
-public Transform firstToComplete, secondToComplete;
-private bool firstPut = false, secondPut = false;
+    private EditText etUsername, etPassword;
+    private Button btnRegister;
+    private Map<String, String> userData;
     \end{verbatim}
 \end{small}
-Прикрепляется к невидимому кубу с коллайдером, который при столкновении с персонажем и наведении им указателя на место головоломки вешает колокольчик из руки, и, если все 5 на месте, запускает головоломку. 
+Класс, отвечающий за отображение RegisterActivity, проверку введённых данных и отправку запроса авторизации на сервер.
 
-\subsection{KeyDoorOpener}
+\subsection{ShopListActivity}
 Поля:\\
 \begin{small}
     \begin{verbatim}
-public GameObject door, final;
-private static bool opened = false;
-private float timeToOpen = 1F;
-public Transform handMountingPosition;
+    RecyclerView.LayoutManager layoutManager;
+    RecyclerView rvShopList;
+    SwipeRefreshLayout swipeRefreshLayout;
+    public ItemAdapter adapter;
+    public ShopList selectedShopList;
+    public FetchData fetchData;
+    public TextView tvTotalPrice;
+    private View btnAdd;
+    private TextView tvShopListName;
     \end{verbatim}
 \end{small}
+Класс, отвечающий за отображение ShopListActivity, загрузку списков покупок c серверa.
 
-Класс, отвечающий за открытие двери когда в руке у игрока находится ключ.
 
-\subsection{LastPuzzleLogic}
+\subsection{ItemAdapter}
 Поля:\\
 \begin{small}
     \begin{verbatim}
-    char[] numbers;
-    bool solved;
-    float step;
-    string key = "4118956";
-    public GameObject Key;
+    private List<Item> items;
+    private List<Item> tmpItems;
+    private ArrayList<Item> itemsCopy;
+    private Context context;
+    private Dialog itemFullPreview;
+    private SparseBooleanArray expandState;
+    private boolean type1Downloaded = false;
+    private boolean type2Downloaded = false;
         \end{verbatim}
 \end{small}
+Класс, отвечающий за отображение каждого индивидуального Item'a.
 
-Класс, отвечающий за поведение последней головоломки с ключем на книжном шкафу.
-
-\subsection{MainMenu}
+\subsection{ShopListPreviewAdapter}
  Поля:\\
 \begin{small}
     \begin{verbatim}
-        public GameObject character, story;
-   
+    public List<ShopList> shopLists;
+    private Context context;
     \end{verbatim}
 \end{small}
+Класс, отвечающий за отображение каждого индивидуального ShopList'a.
 
-Класс главного меню, прикрепляется к двум лэйблам <<PLAY>> и <<EXIT>>.
-
-\subsection{ModChanger}
+\subsection{HomeFragment}
 Поля:\\
 \begin{small}
     \begin{verbatim}
-    public GameObject modeChooser;
-    public static bool vrModeEnabled = false;
-    private bool checked_ = false;ы
+    private RecyclerView rvItemList;
+    private RecyclerView.LayoutManager layoutManager;
     \end{verbatim}
 \end{small}
-Класс, отвечающий за выбор режима (VR Mode или Normal Mode)
+Класс, отвечающий за отрисовку главного фрагмента и toolbar'a.
 
 
-\subsection{NumberChanger}
+\subsection{ShopListsPreviewFragment}
 Поля:\\
 \begin{small}
     \begin{verbatim}
-    int n;
-    public float timeDelay = 1F;
-    float currentTime = 0F;
-    bool gazedAt = false;
+    RecyclerView.LayoutManager layoutManager;
+    RecyclerView rvShopLists;
     \end{verbatim}
 \end{small}
-Класс, отвечающий за изменение каждой цифры в последней головоломке.  
+Отображает ``превью'' всех пользовательских предметов и товаров из магазина в
+виде карточек
 
 
-\subsection{OpenDoorAndLoadScene}
+\subsection{InternetUtil}
+Класс, содержащий статический метод для проверки работы интернет-сети.
+
+\subsection{JSONUtil}
+Класс, формирующий хэдер JSON запроса.
+
+\subsection{APIRequests}
+Имеет статическую фабрику для получения Request Handler'a. Далее все действия
+проводит RH. он добавляет к запросу URL, ReqponceListener и ErrorListener
+
+\subsection{Config}
 Поля:\\
 \begin{small}
     \begin{verbatim}
-    public GameObject door;
-    public static bool opened = false;
-    public float timeToOpen = 0.6F;
-    \end{verbatim}
+    public static final String URL_CORE = "http://gcsales.ru/";
+    public static final String URL_LOGIN = URL_CORE + "auth/login/";
+    public static final String URL_REGISTER = URL_CORE + "auth/register/";
+    public static final String URL_SALES_SHOP = URL_CORE + "api/shops/";
+    public static final String URL_SHOPLIST = URL_CORE + "api/shoplist/";
+    public static final String URL_SHOPLISTS_PREVIEW = URL_CORE + "api/shoplist?mode=preview";
+    public static final String URL_SHOPLISTS = URL_CORE + "api/shoplist?mode=full";
+    public static final String URL_ITEMS_ON_PAGE = "&page=";
+    public static final String URL_ITEMS_IN_CATEGRY = "?category=";
+    public static final String URL_CATEGORIES = "categories";
+    public static final String URL_SL_ADD_ITEM = "additem?id=";
+    public static final String URL_SL_ADD_CUSTOM_ITEM = "additem?custom=";
+    public static final String URL_SL_DELETE_ITEM = "deleteitem?id=";
+    public static final String KEY_USERNAME = "username";
+    public static final String KEY_PASSWORD = "password";
+    public static final String TAG_VOLLEY_ERROR = "VOLLEY";
+    public static final String REQUESTS_CONTENT_TYPE = "application/json; charset=utf-8";
+    public static final String BAD_API_AUTH_RESPONSE = "Wrong username/password.";
+    public static final String SH_PREFS_NAME = "easy_sales_token";
+    public static final String KEY_TOKEN = "user_token";
+    public static final String DEF_NO_TOKEN = "NULL";
+    public static final String KEY_ITEMS = "all_items";
+    public static final String KEY_SHOPLIST_ITEMS = "shoplist_items";
+    public static final String KEY_CURRENT_SHOPLIST = "com.hes.easysales.easysales.ShopList.";
+    public static final int MAX_LEN_PREVIEW = 20;
+    public static final int MAX_ITEMS_PREVIEW = 6;
+\end{verbatim}
 \end{small}
-Класс, отвечающий за открытие двери с TransitScene для входа в дом.
+Класс с общими для всех даными.
 
-\subsection{PickUpObject}
+\subsection{EndlessRCVScrollListener}
 Поля:\\
 \begin{small}
     \begin{verbatim}
-    public Vector3 handPosition;
-    public Vector3 handRotation;
-    Vector3 oldScale;
-    public float angle1 = 275F, angle2 = 303F;
-    public Transform handMountingPosition;
-    public Transform vrCam;
-    private bool tilted;
-    bool pickedUp = false;
-    \end{verbatim}
+    private LinearLayoutManager linearLayoutManager;
+    private WeakReference<Activity> actvityRef;
+\end{verbatim}
 \end{small}
-Класс, отвечающий за перемещение объекта с места, где он лежал, в руку игроку.
+Класс, ``слушающий'' когда элемент RecyclerView дойдёт долистается конца. И подгружает ещё больше товаров.
 
-\subsection{StoryLogic}
+\subsection{FetchData}
 Поля:\\
 \begin{small}
     \begin{verbatim}
-    public GameObject character, vrCam, guide, tryIt, glhf, stone, constraint;
-    private bool freezeMove = true, thrown = false, shown = false;
-    \end{verbatim}
-\end{small}
-Класс, отвечающий за последовательность показа приветственных текстов и обучающего фрагмента вначале.
+    private ProgressBar pbLoading;
 
-\subsection{Unscrew}
+    // To prevent the leak of Context.
+    //
+    private WeakReference<Activity> activityRef;
+    private WeakReference<SwipeRefreshLayout> swipeRefreshLayoutRef;
+\end{verbatim}
+\end{small}
+
+Класс, который по мере возможности загружает всю необходимтую информацию.o
+
+\subsection{Item}
 Поля:\\
 \begin{small}
     \begin{verbatim}
-    bool unscrewed = false, hasScrewDriver = false;
-    public Transform handMountingPosition;
-    \end{verbatim}
+    private long id;
+    private String name;
+    private String category;
+    private String imageUrl;
+    private double oldPrice;
+    private double newPrice;
+    private String discount;
+    private String dateIn;
+    private String dateOut;
+    private String condition;
+    private Shop shop;
+    // These fields are initialized explicitly using setters!
+    // Factory method keeps them default.
+    // However, Parcel keeps them for future reuse.
+    //
+    private boolean expandable = false;
+    private boolean matched = false;
+    private List<Item> matchingItems = new ArrayList<>();
+\end{verbatim}
 \end{small}
-Класс, отвечающий за откручивание колокольчика со стены при помощи отвертки в руке игрока.
 
-\subsection{VRSlider}
+Класс, реализуюций POJO item Item.
+
+
+\subsection{Shop}
 Поля:\\
 \begin{small}
     \begin{verbatim}
-    public float fillTime = 2f;
-    public int Scene = 1;
-    private Slider mySlider;
-    private float timer;
-    private bool gazedAt;
-    private Coroutine fillBarRoutine;
-    \end{verbatim}
+    private int id;
+    private String alias;
+    private String name;
+
+    private List<String> categories;
+\end{verbatim}
 \end{small}
-Класс, отвечающий за анимацию слайдера - индикатора внизу экрана.
+
+Класс, реализуюций POJO item Shop.
+
+
+\subsection{ShopList}
+Поля:\\
+\begin{small}
+    \begin{verbatim}
+    private long id;
+    private String name;
+    private List<Item> items;
+    private List<Item> customItems;
+\end{verbatim}
+\end{small}
+
+Класс, реализуюций POJO item ShopList.
+
+
+\subsection{ItemClickListener}
+Метод:\\
+\begin{small}
+    \begin{verbatim}
+    public void onClick(View v, int postition, boolean isLongClick);
+\end{verbatim}
+\end{small}
+Интерфейс, определяющий поведение Item'ов при нажатии на них.
 
