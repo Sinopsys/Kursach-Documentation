@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{c}{\PYGZlt{}!\PYGZhy{}\PYGZhy{} Объвление компоненты ShopListCard внутри ShopListPreview и}
+\PYG{c}{          передача ей объекта shoplist через props \PYGZhy{}\PYGZhy{}\PYGZgt{}}
+  \PYG{p}{\PYGZlt{}}\PYG{n+nt}{shoplist\PYGZhy{}card} \PYG{n+na}{:shoplist}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}shoplist\PYGZdq{}}\PYG{p}{\PYGZgt{}\PYGZlt{}/}\PYG{n+nt}{shoplist\PYGZhy{}card}\PYG{p}{\PYGZgt{}}
+
+  \PYG{c}{\PYGZlt{}!\PYGZhy{}\PYGZhy{} Объвление компоненты ItemSmall внутри ShopListCustomItem и}
+\PYG{c}{           обработка события, исходящего из дочерней компоненты  \PYGZhy{}\PYGZhy{}\PYGZgt{}}
+  \PYG{p}{\PYGZlt{}}\PYG{n+nt}{item\PYGZhy{}small} \PYG{n+na}{v\PYGZhy{}on:addItem}\PYG{o}{=}\PYG{l+s}{\PYGZdq{}addItem(\PYGZdl{}event)\PYGZdq{}} \PYG{p}{\PYGZgt{}}
+  \PYG{p}{\PYGZlt{}/}\PYG{n+nt}{item\PYGZhy{}small}\PYG{p}{\PYGZgt{}}
+\end{Verbatim}

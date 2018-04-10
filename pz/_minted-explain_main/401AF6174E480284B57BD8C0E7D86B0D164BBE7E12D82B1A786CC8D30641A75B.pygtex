@@ -1,0 +1,29 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// Модель таблицы account в виде объекта в JS коде}
+\PYG{n+nx}{module}\PYG{p}{.}\PYG{n+nx}{exports} \PYG{o}{=} \PYG{k+kd}{function}\PYG{p}{(}\PYG{n+nx}{sequelize}\PYG{p}{,} \PYG{n+nx}{DataTypes}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k}{return} \PYG{n+nx}{sequelize}\PYG{p}{.}\PYG{n+nx}{define}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}account\PYGZsq{}}\PYG{p}{,} \PYG{p}{\PYGZob{}}
+    \PYG{n+nx}{id}\PYG{o}{:} \PYG{p}{\PYGZob{}}
+      \PYG{n+nx}{type}\PYG{o}{:} \PYG{n+nx}{DataTypes}\PYG{p}{.}\PYG{n+nx}{INTEGER}\PYG{p}{,}
+      \PYG{n+nx}{allowNull}\PYG{o}{:} \PYG{k+kc}{false}\PYG{p}{,}
+      \PYG{n+nx}{primaryKey}\PYG{o}{:} \PYG{k+kc}{true}\PYG{p}{,}
+      \PYG{n+nx}{autoIncrement}\PYG{o}{:} \PYG{k+kc}{true}
+    \PYG{p}{\PYGZcb{},}
+    \PYG{n+nx}{username}\PYG{o}{:} \PYG{p}{\PYGZob{}}
+      \PYG{n+nx}{type}\PYG{o}{:} \PYG{n+nx}{DataTypes}\PYG{p}{.}\PYG{n+nx}{STRING}\PYG{p}{,}
+      \PYG{n+nx}{allowNull}\PYG{o}{:} \PYG{k+kc}{false}
+    \PYG{p}{\PYGZcb{},}
+    \PYG{n+nx}{password}\PYG{o}{:} \PYG{p}{\PYGZob{}}
+      \PYG{n+nx}{type}\PYG{o}{:} \PYG{n+nx}{DataTypes}\PYG{p}{.}\PYG{n+nx}{STRING}\PYG{p}{,}
+      \PYG{n+nx}{allowNull}\PYG{o}{:} \PYG{k+kc}{false}
+    \PYG{p}{\PYGZcb{}}
+  \PYG{p}{\PYGZcb{});}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{c+c1}{// Пример отношений между сущностями}
+\PYG{n+nx}{Account}\PYG{p}{.}\PYG{n+nx}{hasMany}\PYG{p}{(}\PYG{n+nx}{ShopList}\PYG{p}{);} \PYG{c+c1}{// Один аккаунт имеет много списков покупок}
+\PYG{n+nx}{ShopList}\PYG{p}{.}\PYG{n+nx}{belongsTo}\PYG{p}{(}\PYG{n+nx}{Account}\PYG{p}{);} \PYG{c+c1}{// Список покупок принадлежит одному аккаунту}
+\PYG{n+nx}{Item}\PYG{p}{.}\PYG{n+nx}{belongsToMany}\PYG{p}{(}\PYG{n+nx}{ShopList}\PYG{p}{,} \PYG{p}{\PYGZob{}} \PYG{n+nx}{through}\PYG{o}{:} \PYG{n+nx}{ShopListItem} \PYG{p}{\PYGZcb{});} \PYG{c+c1}{// Товар принадлежит}
+                                            \PYG{c+c1}{// многим спискам покупок}
+\PYG{n+nx}{ShopList}\PYG{p}{.}\PYG{n+nx}{belongsToMany}\PYG{p}{(}\PYG{n+nx}{Item}\PYG{p}{,} \PYG{p}{\PYGZob{}} \PYG{n+nx}{through}\PYG{o}{:} \PYG{n+nx}{ShopListItem} \PYG{p}{\PYGZcb{});} \PYG{c+c1}{// Список покупок}
+                                            \PYG{c+c1}{// принадлежит многим товарам}
+\end{Verbatim}
