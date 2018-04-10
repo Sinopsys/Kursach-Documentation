@@ -1,8 +1,8 @@
 Ниже приведены описания классов для Андроид клиента (Java)
 
-Классы и интерфейсы Java:
+\subsection{Классы и интерфейсы Java}
 
-\subsection{LoginActivity}
+\subsubsection{LoginActivity}
 Поля:\\
 \begin{small}
     \begin{verbatim}
@@ -17,7 +17,7 @@
 \end{small}
 Класс, отвечающий за отображение LoginActivity, проверку введённых данных и отправку запроса авторизации на сервер.
 
-\subsection{MainActivity}
+\subsubsection{MainActivity}
 Поля:\\
 \begin{small}
     \begin{verbatim}
@@ -45,7 +45,7 @@
     \end{verbatim}
 \end{small}
 Основной класс программы, хранит состояния фрагментов, чтобы состояния прокрутки оставалась неизменной при переходе по фрагментам; запускает процессы отображения всех основных графических элементов, отвечает за логику перемещения внутри приложения и определяет поведение кнопки ``назад''.
-\subsection{RegisterActivity}
+\subsubsection{RegisterActivity}
 Поля:\\
 \begin{small}
     \begin{verbatim}
@@ -56,7 +56,7 @@
 \end{small}
 Класс, отвечающий за отображение RegisterActivity, проверку введённых данных и отправку запроса авторизации на сервер.
 
-\subsection{ShopListActivity}
+\subsubsection{ShopListActivity}
 Поля:\\
 \begin{small}
     \begin{verbatim}
@@ -74,7 +74,7 @@
 Класс, отвечающий за отображение ShopListActivity, загрузку списков покупок c серверa.
 
 
-\subsection{ItemAdapter}
+\subsubsection{ItemAdapter}
 Поля:\\
 \begin{small}
     \begin{verbatim}
@@ -90,7 +90,7 @@
 \end{small}
 Класс, отвечающий за отображение каждого индивидуального Item'a.
 
-\subsection{ShopListPreviewAdapter}
+\subsubsection{ShopListPreviewAdapter}
  Поля:\\
 \begin{small}
     \begin{verbatim}
@@ -100,7 +100,7 @@
 \end{small}
 Класс, отвечающий за отображение каждого индивидуального ShopList'a.
 
-\subsection{HomeFragment}
+\subsubsection{HomeFragment}
 Поля:\\
 \begin{small}
     \begin{verbatim}
@@ -111,7 +111,7 @@
 Класс, отвечающий за отрисовку главного фрагмента и toolbar'a.
 
 
-\subsection{ShopListsPreviewFragment}
+\subsubsection{ShopListsPreviewFragment}
 Поля:\\
 \begin{small}
     \begin{verbatim}
@@ -123,17 +123,39 @@
 виде карточек
 
 
-\subsection{InternetUtil}
+\subsubsection{InternetUtil}
+Методы:\\
+
+\begin{small}
+    \begin{verbatim}
+    public static boolean isConnectedToInternet(Context context)
+    \end{verbatim}
+\end{small}
 Класс, содержащий статический метод для проверки работы интернет-сети.
 
-\subsection{JSONUtil}
+\subsubsection{JSONUtil}
+Методы:\\
+
+\begin{small}
+    \begin{verbatim}
+    public static JSONObject formPayload(Map<String, String> kvs)
+    \end{verbatim}
+\end{small}
 Класс, формирующий хэдер JSON запроса.
 
-\subsection{APIRequests}
+\subsubsection{APIRequests}
+Методы:\\
+
+\begin{small}
+    \begin{verbatim}
+    public static String getStringPref(Context c, String key)
+    public static void clearPrefs(Context c, String key)
+    \end{verbatim}
+\end{small}
 Имеет статическую фабрику для получения Request Handler'a. Далее все действия
 проводит RH. он добавляет к запросу URL, ReqponceListener и ErrorListener
 
-\subsection{Config}
+\subsubsection{Config}
 Поля:\\
 \begin{small}
     \begin{verbatim}
@@ -167,7 +189,7 @@
 \end{small}
 Класс с общими для всех даными.
 
-\subsection{EndlessRCVScrollListener}
+\subsubsection{EndlessRCVScrollListener}
 Поля:\\
 \begin{small}
     \begin{verbatim}
@@ -177,7 +199,7 @@
 \end{small}
 Класс, ``слушающий'' когда элемент RecyclerView дойдёт долистается конца. И подгружает ещё больше товаров.
 
-\subsection{FetchData}
+\subsubsection{FetchData}
 Поля:\\
 \begin{small}
     \begin{verbatim}
@@ -192,7 +214,7 @@
 
 Класс, который по мере возможности загружает всю необходимтую информацию.o
 
-\subsection{Item}
+\subsubsection{Item}
 Поля:\\
 \begin{small}
     \begin{verbatim}
@@ -220,7 +242,7 @@
 Класс, реализуюций POJO item Item.
 
 
-\subsection{Shop}
+\subsubsection{Shop}
 Поля:\\
 \begin{small}
     \begin{verbatim}
@@ -235,7 +257,7 @@
 Класс, реализуюций POJO item Shop.
 
 
-\subsection{ShopList}
+\subsubsection{ShopList}
 Поля:\\
 \begin{small}
     \begin{verbatim}
@@ -249,7 +271,7 @@
 Класс, реализуюций POJO item ShopList.
 
 
-\subsection{ItemClickListener}
+\subsubsection{ItemClickListener}
 Метод:\\
 \begin{small}
     \begin{verbatim}
@@ -258,3 +280,132 @@
 \end{small}
 Интерфейс, определяющий поведение Item'ов при нажатии на них.
 
+
+
+\subsection{Описание модулей Python}
+
+\subsubsection{dixy\_crawler}
+
+\begin{small}
+    \begin{verbatim}
+        class DixySpider(scrapy.Spider)
+    \end{verbatim}
+\end{small}
+
+Класс, описывающий работу spider'a для магазина Дикси. Метод parse собирает с
+веб-страницы (при помощи xpath селекторов) информацию, очищает её, передавая
+модулю text\_processor, формирует DixyItems и отправляет их на вход модулю
+pipelines.
+
+
+\subsubsection{perekrestok\_crawler}
+
+\begin{small}
+    \begin{verbatim}
+        class PerekrestokSpider(scrapy.Spider)
+    \end{verbatim}
+\end{small}
+
+Класс, описывающий работу spider'a для магазина Перекресток. Метод parse собирает с
+веб-страницы (при помощи xpath селекторов) информацию, очищает её, передавая
+модулю text\_processor, формирует DixyItems и отправляет их на вход модулю
+pipelines.
+
+\subsubsection{text\_processor}
+
+Методы:\\
+\begin{small}
+    \begin{verbatim}
+remove_junk(s)
+try_float(val)
+concat(left, right, sep)
+process(val)
+process_str(val)
+split_by(val, delim)
+make_date(raw)
+parse_date_in(s)
+parse_date_out(s)
+\end{verbatim}
+\end{small}
+
+\subsubsection{dixy\_selectors}
+
+Поля:\\
+\begin{small}
+    \begin{verbatim}
+    URLS = ['https://dixy.ru/akcii/skidki-nedeli']
+    URL_CORE = 'https://dixy.ru'
+    ITEM = '//div[contains(@class, "elem-product ")]'
+    DESCRIPTION = 'div[@class="elem-product__description"]'
+    INFO = 'div[@class="elem-product__info"]'
+    PRICE_CONTAINER = INFO + '/div[@class="elem-product__price-container"]'
+    PRICES = PRICE_CONTAINER + '/div[@class="elem-product__prices"]'
+    IMG = INFO + '/div[@class="elem-product__image"]/img/@src'
+    NAME = DESCRIPTION + '/div[contains(@class, "product-name")]/text()'
+    CATEGORY = DESCRIPTION + '/div[@class="product-category"]/child::text()[2]'
+    NEW_PRICE_LEFT = PRICES + '/div[@class="price-left"]/span/text()'
+    NEW_PRICE_RIGHT = PRICES + '/div[@class="price-right"]/span/text()'
+    OLD_PRICE_LEFT = PRICES + '/div[@class="price-right"]/div/span[@class="price-f\
+    ull__integer"]/text()'
+    OLD_PRICE_RIGHT = PRICES + '/div[@class="price-right"]/div/span[@class="price-\
+    full__float"]/text()'
+    DISCOUNT = PRICE_CONTAINER + '/div[contains(@class,"discount")]/span[@class="v\
+    alue"]/text()' + ' | ' + PRICE_CONTAINER + '/div[@class="just-now"]/text()'
+    CONDITION = PRICE_CONTAINER + '/div[contains(@class,"promopack")]/div[@class="\
+    text"]/text()'
+    DATE = 'div[contains(@class, "elem-badge-cornered")]/text()'
+    NEXT_PAGE = '//div[contains(@class, "elem-pagination")]/a[contains(@class, "el\
+    em-pagination__btn--next")]/@href'
+    \end{verbatim}
+\end{small}
+
+
+\subsubsection{perekrestok\_selectors}
+
+Поля:\\
+\begin{small}
+    \begin{verbatim}
+    URLS = ['https://www.perekrestok.ru/catalog']
+    URL_CORE = 'https://perekrestok.ru'
+    CATEGORIES = '//a[@class="xf-catalog-categories__link"]/@href'
+    CATEGORIES_TEXT = '//span[@class="xf-catalog-categories__text"]/text()'
+    POST_CATEGORY = '//span[@class="xf-breadcrumbs__current"]/text()'
+    CURRENT_CATEGORY = '//h1[@class="xf-caption__title"]/text()'
+    ROOT_NODE = '//ul[@id="catalogItems"]'
+    ITEM = 'li/div[contains(@class, "xf-product")]'
+    NAME = 'div[@class="xf-product__title xf-product-title"]/a[@class="xf-product-\
+    title__link js-product__title"]/text()'
+    IMG = 'figure/a/img/@data-src'
+    NEW_PRICE = 'div/div[contains(@class, "xf-product-cost__current")]/@data-cost'
+    OLD_PRICE = 'div/div[contains(@class, "xf-price xf-product-cost__prev")]/@data-cost'
+    NEXT_PAGE = '//a[contains(@class, "xf-paginator__item js-paginator__next")]/@href'
+    \end{verbatim}
+\end{small}
+
+
+\subsubsection{pipelines}
+
+Классы:\\
+\begin{small}
+    \begin{verbatim}
+    class GeneralProcessPipeline(object)
+    class JsonWriterPipeline(object)
+    class DataBaseWriterPipeLine(object)
+    \end{verbatim}
+\end{small}
+
+\subsubsection{config}
+
+Поля:\\
+
+\begin{small}
+    \begin{verbatim}
+    const =\
+    {
+    'SHOPS_INFO_API': 'http://46.17.44.125/api/shops',
+    'ADD_ITEM_API': 'http://localhost/api/shops',
+    'URI_JSON_OUT': 'out/items.json',
+    'REQUEST_HEADERS': {'Content-Type': 'application/json'},
+}
+    \end{verbatim}
+\end{small}
