@@ -1,32 +1,49 @@
-При программировании на Unity, каждый скрипт предсавляет собой отдельный класс, в котором, как правило, есть 2 метода: Start и Update. Start вызывается 1 раз при запуске скрипта, а Update вызывается 1 раз за фрейм. 
+% При программировании на VueJS, каждый модуль (компонента) предсавляет собой
+% отдельный файл, в котором инкапсулированы 
 
-\subsection{WalkByLook}
+Веб-приложение
+\subsection{Discounts.vue}
 Поля:\\
-\begin{small}
-    \begin{verbatim}
-    public float angle1 = 30F, angle2 = 80F;
-    public float speed = 5F;
-    private bool moveForward;
-    private CharacterController cc;
-    public Transform vrCam;
-    private bool lookingToObject = false;
-    private bool mustLookToTheObject = false;
-    public AudioSource[] footSteps;
-    private bool shouldMove = false, playing = false;
-    \end{verbatim}
-\end{small}
-Класс, созданный для передвижения игрока при помощи угла наклона головы по оси Х.
+\begin{minted}{javascript}
+  data: function() {
+    return {
+      categories: [],
+      items: [],
+      shoplists: [],
+      numPages: 0,
+      user: auth.user
+    }
+  }
+\end{minted}
+Компонента для отображения списка текущих акций для разных магазинов.
 
-\subsection{BellBehaviour}
+\subsection{Header.vue}
 Поля:\\
-\begin{small}
-    \begin{verbatim}
-public Material bellHoverMaterial;
-public Material defaultBellMaterial;
-private AudioSource audioSrc;
-    \end{verbatim}
-\end{small}
-Отвечает за поведение колокольчика при наведении на него reticle и нажатии (загрузки нижнего индикатора).
+\begin{minted}{javascript}
+  data: function() {
+    return {
+      shops: [],
+      user: auth.user
+    }
+  }
+\end{minted}
+Компонента для отображения меню навигации вверху страницы.
+
+\subsection{Item.vue}
+Поля:\\
+\begin{minted}{javascript}
+  data: function() {
+    return {
+      maxNameLength: 80,
+      showImage: true,
+      user: auth.user
+    };
+  },
+\end{minted}
+Компонента для отображения акционного товара.
+
+%% TODO
+
 \subsection{BellPuzzleLauncher}
 Поля:\\
 \begin{small}
