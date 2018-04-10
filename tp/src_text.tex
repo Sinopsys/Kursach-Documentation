@@ -30,7 +30,10 @@ encoding=utf8
 % \usepackage{showframe}
 
 % Indices & bibliography
-\usepackage{natbib}
+\usepackage[backend=biber
+           % ,style=authoryear-icomp
+            ]{biblatex}
+\addbibresource{used_sources.bib}
 \usepackage[titles]{tocloft}
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{5}
@@ -63,32 +66,31 @@ encoding=utf8
 % Custom commands
 % configure eskd
 \titleTop{
-\textbf{\Large ПРАВИТЕЛЬСТВО РОССИЙСКОЙ ФЕДЕРАЦИИ \\
-НАЦИОНАЛЬНЫЙ ИССЛЕДОВАТЕЛЬСКИЙ УНИВЕРСИТЕТ \\
-«ВЫСШАЯ ШКОЛА ЭКОНОМИКИ» } \\
-\vspace*{0.2cm}
-{\small Факультет компьютерных наук \\
-Департамент программнoй инженерии \\
+	{\Large ПРАВИТЕЛЬСТВО РОССИЙСКОЙ ФЕДЕРАЦИИ \\
+		НАЦИОНАЛЬНЫЙ ИССЛЕДОВАТЕЛЬСКИЙ УНИВЕРСИТЕТ \\
+		«ВЫСШАЯ ШКОЛА ЭКОНОМИКИ» } \\
+	\vspace*{0.2cm}
+	{Факультет компьютерных наук \\
+		Департамент программнoй инженерии \\
+	}
 }
-}
-\titleDesignedBy{Студент группы БПИ 151 НИУ ВШЭ}{Куприянов К.И.}
-\titleAgreedBy{%
-\parbox[t]{7cm} {
-Доцент департамента \\
-программной инженерии \\
-факультета компьютерных наук \\
-канд. техн. наук \\
-}}{Ахметсафина Р. З.}
+\titleDesignedBy{Студент группы БПИ 151 НИУ-ВШЭ}{Куприянов К. И.}
+
+\titleAgreedBy{
+	\parbox[t]{7cm} {
+		\centerline{Академический руководитель ОП}
+		\centerline{Системная и программная инженерия}
+		\centerline{профессор ДПИ}
+}}{Д.В. Александров}
 \titleApprovedBy{
-\parbox[t]{10cm} {
-Академический руководитель \\
-образовательной программы \\
-«Программная инженерия» \\
-профессор департамента программной \\
-инженерии канд. техн. наук \\
-}}{Шилов В. В.}
-\titleName{Игра — Эскейп Квест с Использованием Очков Виртуальной Реальности}
-\workTypeId{RU.17701729.509000 12 01-1}
+	\parbox[t]{7cm} {
+		\centerline{Академический руководитель}
+		\centerline{образовательной программы}
+		\centerline{«Программная Инженерия»}
+		\centerline{профессор, канд. техн. наук}
+}}{В. В. Шилов}
+\titleName{Клиент-Серверное Android-Приложение для Управления Скидками в Розничных Сетях}
+\workTypeId{RU.17701729.506900 12 01-1}
 
 \titleSubname{Текст программы}
 
@@ -114,11 +116,7 @@ encoding=utf8
 \input{the_code}
 
 \newpage
-\section{Приложение 1. Терминология}
-\input{terminology}
-
-\newpage
-\section{Приложение 3. Список используемой литературы}
+\section{Приложение 1. Список используемой литературы}
 \input{used_literature}
 
 % Index
