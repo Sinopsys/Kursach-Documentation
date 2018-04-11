@@ -53,7 +53,11 @@ encoding=utf8
 % \usepackage{showframe}
 
 % Indices & bibliography
-\usepackage{natbib}
+\usepackage[backend=biber
+           % ,style=authoryear-icomp
+            ]{biblatex}
+\addbibresource{used_sources.bib}
+% \usepackage{natbib}
 \usepackage[titles]{tocloft}
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{5}
@@ -97,14 +101,13 @@ encoding=utf8
 Департамент программнoй инженерии \\
 }
 }
-\titleDesignedBy{Студент группы БПИ 151 НИУ ВШЭ}{Куприянов  К.И.}
-\titleAgreedBy{%
-\parbox[t]{7cm} {
-Доцент департамента \\
-программной инженерии \\
-факультета компьютерных наук \\
-канд. техн. наук \\
-}}{Ахметсафина Р. З.}
+\titleDesignedBy{Студент группы БПИ 151 НИУ ВШЭ}{Суровцев М.А.}
+\titleAgreedBy{
+  \parbox[t]{7cm} {
+    \centerline{Академический руководитель ОП}
+    \centerline{Системная и программная инженерия}
+    \centerline{профессор ДПИ}
+}}{Александров Д.В.}
 \titleApprovedBy{
 \parbox[t]{10cm} {
 Академический руководитель \\
@@ -113,9 +116,9 @@ encoding=utf8
 профессор департамента программной \\
 инженерии канд. техн. наук \\
 }}{Шилов В. В.}
-\titleName{Игра — Эскейп Квест с Использованием Очков Виртуальной
-    Реальности}
-\workTypeId{RU.17701729.509000 51 01-1}
+\titleName{Клиент-Серверное Web Приложение для Управления Скидками в Розничных
+      Сетях}
+\workTypeId{RU.17701729.506900 51 01-1}
 
 \titleSubname{Программа и методика испытаний}
 
