@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{n+nx}{data}\PYG{o}{:} \PYG{k+kd}{function}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+    \PYG{k}{return} \PYG{p}{\PYGZob{}}
+      \PYG{n+nx}{shoplists}\PYG{o}{:} \PYG{p}{[],}
+      \PYG{n+nx}{shoplist}\PYG{o}{:} \PYG{l+s+s1}{\PYGZsq{}\PYGZsq{}}\PYG{p}{,}
+      \PYG{n+nx}{user}\PYG{o}{:} \PYG{n+nx}{auth}\PYG{p}{.}\PYG{n+nx}{user}
+    \PYG{p}{\PYGZcb{}}
+  \PYG{p}{\PYGZcb{},}
+\end{Verbatim}

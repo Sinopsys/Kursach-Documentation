@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{n+nx}{data}\PYG{o}{:} \PYG{k+kd}{function}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+    \PYG{k}{return} \PYG{p}{\PYGZob{}}
+      \PYG{n+nx}{shoplist}\PYG{o}{:} \PYG{p}{\PYGZob{}\PYGZcb{},}
+      \PYG{n+nx}{customItem}\PYG{o}{:} \PYG{l+s+s1}{\PYGZsq{}\PYGZsq{}}
+    \PYG{p}{\PYGZcb{}}
+  \PYG{p}{\PYGZcb{},}
+\end{Verbatim}

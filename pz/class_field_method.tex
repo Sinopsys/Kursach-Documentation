@@ -1,10 +1,12 @@
 % При программировании на VueJS, каждый модуль (компонента) предсавляет собой
 % отдельный файл, в котором инкапсулированы 
 
-Веб-приложение
-\subsection{Discounts.vue}
-Поля:\\
+\subsection{Описание компонент веб-приложения}
+
+\subsubsection{Discounts.vue}
+Поля:
 \begin{minted}{javascript}
+  props: [ 'shopId', 'currentCategory', 'currentPage' ],
   data: function() {
     return {
       categories: [],
@@ -13,12 +15,12 @@
       numPages: 0,
       user: auth.user
     }
-  }
+  },
 \end{minted}
 Компонента для отображения списка текущих акций для разных магазинов.
 
-\subsection{Header.vue}
-Поля:\\
+\subsubsection{Header.vue}
+Поля:
 \begin{minted}{javascript}
   data: function() {
     return {
@@ -29,9 +31,10 @@
 \end{minted}
 Компонента для отображения меню навигации вверху страницы.
 
-\subsection{Item.vue}
-Поля:\\
+\subsubsection{Item.vue}
+Поля:
 \begin{minted}{javascript}
+  props: ['item', 'shoplists'],
   data: function() {
     return {
       maxNameLength: 80,
@@ -40,146 +43,124 @@
     };
   },
 \end{minted}
-Компонента для отображения акционного товара.
+Компонента для отображения товара магазина в списке акций.
 
-%% TODO
+\subsubsection{ItemSmall.vue}
+Поля:
+\begin{minted}{javascript}
+  props: ['item', 'btnText', 'index'],
+  data: function() {
+    return {
+      maxNameLength: 40
+    }
+  }, 
+\end{minted}
+Компонента для отображения товара магазина в списке покупок.
 
-\subsection{BellPuzzleLauncher}
-Поля:\\
-\begin{small}
-    \begin{verbatim}
-public Transform handMountingPosition;
-private bool hasBell = false;
-private float angle;
-public Transform vrCam;
-public GameObject bellPuzzle;
-public Transform firstToComplete, secondToComplete;
-private bool firstPut = false, secondPut = false;
-    \end{verbatim}
-\end{small}
-Прикрепляется к невидимому кубу с коллайдером, который при столкновении с персонажем и наведении им указателя на место головоломки вешает колокольчик из руки, и, если все 5 на месте, запускает головоломку. 
+\subsubsection{Login.vue}
+Поля:
+\begin{minted}{javascript}
+  data: function() {
+    return {
+      username: '',
+      password: '',
+      error: ''
+    }
+  },
+\end{minted}
+Компонента для отображения формы входа в систему.
 
-\subsection{KeyDoorOpener}
-Поля:\\
-\begin{small}
-    \begin{verbatim}
-public GameObject door, final;
-private static bool opened = false;
-private float timeToOpen = 1F;
-public Transform handMountingPosition;
-    \end{verbatim}
-\end{small}
+\subsubsection{Register.vue}
+Поля:
+\begin{minted}{javascript}
+  data: function() {
+    return {
+      username: '',
+      password: '',
+      error: ''
+    }
+  },
+  },
+\end{minted}
+Компонента для отображения формы регистрации в системе.
 
-Класс, отвечающий за открытие двери когда в руке у игрока находится ключ.
+\subsubsection{ShopList.vue}
+Поля:
+\begin{minted}{javascript}
+  data: function() {
+    return {
+      shoplist: {},
+      customItem: ''
+    }
+  },
+\end{minted}
+Компонента для отображения списка покупок.
 
-\subsection{LastPuzzleLogic}
-Поля:\\
-\begin{small}
-    \begin{verbatim}
-    char[] numbers;
-    bool solved;
-    float step;
-    string key = "4118956";
-    public GameObject Key;
-        \end{verbatim}
-\end{small}
+\subsubsection{ShopListPreview.vue}
+Поля:
+\begin{minted}{javascript}
+  data: function() {
+    return {
+      shoplists: [],
+      shoplist: '',
+      user: auth.user
+    }
+  },
+\end{minted}
+Компонента для отображения контейнера для карточек-превью списков покупок.
 
-Класс, отвечающий за поведение последней головоломки с ключем на книжном шкафу.
+\subsubsection{ShopListCard.vue}
+Поля:
+\begin{minted}{javascript}
+  props: ['shoplist'],
+  data: function() {
+    return {
+      headerVariant: {
+        bg: 'primary',
+        fg: 'white'
+      },
+      maxNameLength: 40,
+      maxItemsCount: 3
+    }
+  },
+\end{minted}
+Компонента для отображения карточки-превью списка покупок.
 
-\subsection{MainMenu}
- Поля:\\
-\begin{small}
-    \begin{verbatim}
-        public GameObject character, story;
-   
-    \end{verbatim}
-\end{small}
+\subsubsection{ShopListCustomItem.vue}
+Поля:
+\begin{minted}{javascript}
+  props: ['index', 'item'],
+\end{minted}
+Компонента для отображения пользовательской позиции в списке покупок.
 
-Класс главного меню, прикрепляется к двум лэйблам <<PLAY>> и <<EXIT>>.
+\subsection{Описание модулей серверной части приложения}
 
-\subsection{ModChanger}
-Поля:\\
-\begin{small}
-    \begin{verbatim}
-    public GameObject modeChooser;
-    public static bool vrModeEnabled = false;
-    private bool checked_ = false;ы
-    \end{verbatim}
-\end{small}
-Класс, отвечающий за выбор режима (VR Mode или Normal Mode)
+\subsubsection{models/account.js}
+Объектная модель для таблицы account в базе данных.
 
+\subsubsection{models/custom\_item.js}
+Объектная модель для таблицы custom\_item в базе данных.
 
-\subsection{NumberChanger}
-Поля:\\
-\begin{small}
-    \begin{verbatim}
-    int n;
-    public float timeDelay = 1F;
-    float currentTime = 0F;
-    bool gazedAt = false;
-    \end{verbatim}
-\end{small}
-Класс, отвечающий за изменение каждой цифры в последней головоломке.  
+\subsubsection{models/item.js}
+Объектная модель для таблицы item в базе данных.
 
+\subsubsection{models/shop.js}
+Объектная модель для таблицы shop в базе данных.
 
-\subsection{OpenDoorAndLoadScene}
-Поля:\\
-\begin{small}
-    \begin{verbatim}
-    public GameObject door;
-    public static bool opened = false;
-    public float timeToOpen = 0.6F;
-    \end{verbatim}
-\end{small}
-Класс, отвечающий за открытие двери с TransitScene для входа в дом.
+\subsubsection{models/shoplist\_item.js}
+Объектная модель для таблицы shoplist\_item в базе данных.
 
-\subsection{PickUpObject}
-Поля:\\
-\begin{small}
-    \begin{verbatim}
-    public Vector3 handPosition;
-    public Vector3 handRotation;
-    Vector3 oldScale;
-    public float angle1 = 275F, angle2 = 303F;
-    public Transform handMountingPosition;
-    public Transform vrCam;
-    private bool tilted;
-    bool pickedUp = false;
-    \end{verbatim}
-\end{small}
-Класс, отвечающий за перемещение объекта с места, где он лежал, в руку игроку.
+\subsubsection{models/shoplist.js}
+Объектная модель для таблицы shoplist в базе данных.
 
-\subsection{StoryLogic}
-Поля:\\
-\begin{small}
-    \begin{verbatim}
-    public GameObject character, vrCam, guide, tryIt, glhf, stone, constraint;
-    private bool freezeMove = true, thrown = false, shown = false;
-    \end{verbatim}
-\end{small}
-Класс, отвечающий за последовательность показа приветственных текстов и обучающего фрагмента вначале.
+\subsubsection{models/index.js}
+Модуль для указания ассоциаций между моделями, описанными выше.
 
-\subsection{Unscrew}
-Поля:\\
-\begin{small}
-    \begin{verbatim}
-    bool unscrewed = false, hasScrewDriver = false;
-    public Transform handMountingPosition;
-    \end{verbatim}
-\end{small}
-Класс, отвечающий за откручивание колокольчика со стены при помощи отвертки в руке игрока.
+\subsubsection{routes/auth.js}
+Модуль для обработки REST запросов для логина и регистрации.
 
-\subsection{VRSlider}
-Поля:\\
-\begin{small}
-    \begin{verbatim}
-    public float fillTime = 2f;
-    public int Scene = 1;
-    private Slider mySlider;
-    private float timer;
-    private bool gazedAt;
-    private Coroutine fillBarRoutine;
-    \end{verbatim}
-\end{small}
-Класс, отвечающий за анимацию слайдера - индикатора внизу экрана.
+\subsubsection{routes/api/sales.js}
+Модуль для обработки REST запросов для работы со списком акций.
 
+\subsubsection{routes/api/shoplist.js}
+Модуль для обработки REST запросов для работы со списком покупок.
