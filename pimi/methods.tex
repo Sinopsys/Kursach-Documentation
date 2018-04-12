@@ -7,37 +7,34 @@
 \subsection{Проверка требований к интерфейсу}
 Интерфейс соответствует требованиям, указанным в техническом задании. 
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
+    \minipage{0.65\textwidth}
     \includegraphics[width=\textwidth]{./screenshots/interface_main.png}
-    \caption{Проверка требований к интерфейсу}
-    \label{home}
+    \caption{Интерфейс полной версии }
+    \endminipage
+    \vspace{2cm}
+    \minipage{0.2\textwidth}
+    \includegraphics[width=\textwidth]{./screenshots/interface_small.jpg}
+    \caption{Интерфейс мобильной версии}
+    \endminipage
 \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.3\textwidth]{./screenshots/interface_small.jpg}
+%     \caption{Интерфейс мобильной версии}
+% \end{figure}
 
 \newpage
 \subsection{Проверка требований к функциональным характеристикам}
 \subsubsection{Веб-приложение}
-\begin{my_enumerate}
-  \item Реализована возможность просмотра списка доступных магазинов с
-    акционными товарами
-  \item Реализовано представление текущих акций для конкретного магазина:
-    \begin{my_enumerate}
-      \item В виде общего списка (Рис. 2)
-      \item По категориям (Рис. 3)
-    \end{my_enumerate}
-  \item Реализована возможность регистрации и авторизации пользователей в
-    системе для работы со списком покупок (Рис. 4, Рис. 5)
-  \item Реализовано создание и удаление списка покупок (Рис. 6, Рис. 7)
-  \item Реализована работа со списком покупок:
-    \begin{my_enumerate}
-      \item Добавление и удаление товаров магазинов
-      \item Добавление и удаление пользовательских позиций
-      \item Рекомендация товаров магазинов на основе пользовательских позиций
-        (Рис. 8)
-    \end{my_enumerate}
-\end{my_enumerate}
 
-\begin{figure}[h!]
+По умолчанию должны отображаться товары всех категорий (см. Рис. 3), а при
+нажитии на кнопку соответствующей категории должны отображаться только товары
+этой категории (см. Рис. 4).
+
+\begin{figure}[H]
     \centering
     \minipage{0.49\textwidth}
     \includegraphics[width=\textwidth]{./screenshots/interface_main.png}
@@ -49,7 +46,13 @@
     \endminipage
 \end{figure}
 
-\begin{figure}[h!]
+При нажатии на кнопку "Вход/Регистрация" должна отобразиться форма как на Рис.
+5. Далее, если пользователь нажмет кнопку "Регистрация", то должна отобразиться
+форма как на Рис. 6. Если пользователь введет верные данные, то система должна
+переадресовать его на главную страницу, а кнопка "Вход/Регистрация" должна
+изменить свой текст на "Выйти". После чего ему станет доступен список покупок.
+
+\begin{figure}[H]
     \centering
     \minipage{0.49\textwidth}
     \includegraphics[width=\textwidth]{./screenshots/login.png}
@@ -61,61 +64,72 @@
     \endminipage
 \end{figure}
 
-\begin{figure}[h!]
+В разделе "Список покупок" при нажатии на кнопку "Добавить" должен появиться
+диалог как на Рис. 7. После ввода имени списка и нажатии "Ok" список покупок
+должен появиться (Рис. 8).
+
+\begin{figure}[H]
     \centering
     \minipage{0.49\textwidth}
     \includegraphics[width=\textwidth]{./screenshots/create_shoplist.png}
     \caption{Создание списка покупок}
     \endminipage\hfill
     \minipage{0.49\textwidth}
-    \includegraphics[width=\textwidth]{./screenshots/delete_shoplist.png}
-    \caption{Удаление списка покупок}
+    \includegraphics[width=\textwidth]{./screenshots/new_shoplist.png}
+    \caption{Список покупок создан}
     \endminipage
 \end{figure}
 
-\begin{figure}[h!]
+При нажатии на кнопку "+" в карточке товара должнен отобразиться диалог (Рис.
+9). После выбора списка покупок, товар должен появиться в нем (Рис. 10).
+
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{./screenshots/custom_item.png}
-    \caption{Рекомендаци в списке покупок}
+    \minipage{0.49\textwidth}
+    \includegraphics[width=\textwidth]{./screenshots/choose_shoplist.png}
+    \caption{Выбор списка покупок}
+    \endminipage
+    \minipage{0.49\textwidth}
+    \includegraphics[width=\textwidth]{./screenshots/item_added.png}
+    \caption{Товар добавлен в список покупок}
+    \endminipage
 \end{figure}
 
-\newpage
-\subsubsection{Серверное приложение}
-\begin{my_enumerate}
-  \item Реализовано REST API (Рис. 9):
-    \begin{my_enumerate}
-      \item Реализована обработка запросов для работы со списками покупок
-        пользователей
-      \item Реализована обработка запросов для кроулера
-      \item Реализована обработка запросов для получения списка актуальных
-        акционных товаров
-      \item Реализована обработка запросов для авторизации пользователей
-    \end{my_enumerate}
-  \item Реализована база данных для хранения (Рис. 10);
-    \begin{my_enumerate}
-      \item Акционных товаров
-      \item Аккаунтов пользователей
-      \item Списков покупок пользователей
-    \end{my_enumerate}
-\end{my_enumerate}
+При вводе в поле пользовательской позиции (Рис. 11) и нажатии кнопки "Добавить"
+она должна появиться в списке покупок, а также должны отобразиться рекомендации
+для нее (если таковые нашлись). (Рис. 12)
 
-\begin{figure}[h!]
+\begin{figure}[H]
+    \centering
+    \minipage{0.49\textwidth}
+    \includegraphics[width=\textwidth]{./screenshots/add_custom.png}
+    \caption{Добавление пользовательской позиции}
+    \endminipage
+    \minipage{0.49\textwidth}
+    \includegraphics[width=\textwidth]{./screenshots/custom_created.png}
+    \caption{Пользовательская позиция с рекомендациями}
+    \endminipage
+\end{figure}
+
+При нажатии кнопки "-" на товаре из магазина, он должен удалится из списка
+покупок. При нажтии кнопки "Удалить" пользовательская позиция должна удалиться.
+
+\subsubsection{Серверное приложение}
+При отправке любого запроса, описанного в Пояснительной записке, должен
+возвращаться статус 200 в случае успеха и иной статус в случае неудачи.\\
+Пример запроса:
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{./screenshots/postman.png}
     \caption{Отправка GET-запроса на сервер и получение ответа}
 \end{figure}
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=\textwidth]{./screenshots/database.jpg}
-    \caption{Работающий запрос к базе данных}
-\end{figure}
-
-\newpage
 \subsection{Проверка требований к временным характеристикам}
-Для проверки требованиям к временным характеристикам было проведено несколько
-запросов для получения списка акций.
-\begin{figure}[h!]
+Для проверки требованиям к временным характеристикам должно быть проведено
+несколько запросов для получения списка акций. Результат должен получиться
+около того, что на Рис. 15 и не должен выходить за допустимые пределы,
+описанные в Техническом задании.
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{./screenshots/get1.png}
     \includegraphics[width=0.5\textwidth]{./screenshots/get2.png}
@@ -123,5 +137,3 @@
     \caption{Замер времени отправки запроса}
 \end{figure}
 
-Сумма времени на отправку запроса и получения ответа не выходит за допустимые
-пределы, описанные в Техническом задании.
