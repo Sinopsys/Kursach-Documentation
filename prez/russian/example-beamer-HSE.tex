@@ -1,6 +1,5 @@
 %!TEX TS-program = xelatex
 \documentclass{beamer}
-
 \usepackage{HSE-theme/beamerthemeHSE} % Подгружаем тему
 
 %%% Работа с русским языком и шрифтами
@@ -145,9 +144,38 @@
     asdf
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
     \frametitle{REST API}
-    asdf
+
+    /api/shops/\textcolor{red}{1}\textcolor{cyan}{?category=Напитки\&page=1}
+    \medskip
+    \begin{minted}{json}
+    {
+      "count": 9,
+      "numPages": 1,
+      "rows": [
+        {
+          "id": 142138,
+          "name": "Холодный чай Nestea вкус лимона, 0,5 л",
+          "category": "Напитки",
+          "oldPrice": 66.2,
+          "newPrice": 44.99,
+          "dateIn": "2018-04-09",
+          "dateOut": "2018-04-15",
+          "crawlDate": "2018-04-11",
+          "condition": "-",
+          "image": null,
+          "imageUrl": "https://dixy.ru/upload/iblock/ea9/2000003636.jpg",
+          "discount": "-32",
+          "shop": {
+              "id": 1,
+              "alias": "dixy",
+              "name": "Дикси"
+          }
+        }
+      ]
+    }
+    \end{minted}
 \end{frame}
 
 \begin{frame}
