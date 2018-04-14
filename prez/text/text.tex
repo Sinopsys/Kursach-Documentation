@@ -1,0 +1,24 @@
+%!TEX TS-program=xelatex
+%!USE flag=shell-escape
+\documentclass[12pt]{article}
+%%% Работа с русским языком и шрифтами
+\usepackage[english,russian]{babel}   % загружает пакет многоязыковой вёрстки
+\usepackage{fontspec}      % подготавливает загрузку шрифтов Open Type, True Type и др.
+\defaultfontfeatures{Ligatures={TeX},Renderer=Basic}  % свойства шрифтов по умолчанию
+\setmainfont[Ligatures={TeX,Historic}]{Myriad Pro} %  установите шрифты Myriad Pro или (при невозможности) замените здесь на другой шрифт, который есть в системе — например, Arial
+\setsansfont{Myriad Pro}  %  установите шрифты Myriad Pro или (при невозможности) замените здесь на другой шрифт, который есть в системе — например, Arial
+\setmonofont{Courier New}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+
+\begin{document}
+
+\section*{Текст презентации}
+Добрый день, уважаемая комиссия, студенты. Сейчас я, Куприянов Кирилл и мой
+коллека Суровцев Максим расскажем вам про курсовой проект, который мы
+разработали в этом году.
+
+\end{document}
+
+
+% EOF
+
