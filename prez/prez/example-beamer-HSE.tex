@@ -183,11 +183,28 @@
 
 \begin{frame}
     \frametitle{Алгоритм работы программы}
-    \framesubtitle{Crawler: селекторы}
+    \framesubtitle{Список покупок}
+    \medskip
+    \begin{center}
+      \includegraphics[width=\linewidth]{shoplist}
+    \end{center}
+\end{frame}
 
+\begin{frame}
+    \frametitle{Алгоритм работы программы}
+    \framesubtitle{Crawler: селекторы}
     \begin{center}
         CATEGORIES = '//a[@class="catalog-categories\_\_link"]/@href'
         \includegraphics[width=0.9\columnwidth]{code.png}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Алгоритм работы программы}
+    \framesubtitle{База данных}
+    \medskip
+    \begin{center}
+      \includegraphics[width=\linewidth]{database}
     \end{center}
 \end{frame}
 
@@ -224,9 +241,10 @@
 \end{frame}
 
 \begin{frame}[fragile]
-    \frametitle{REST API}
+    \frametitle{Алгоритм работы программы}
+    \framesubtitle{REST API}
 
-    /api/shops/\textcolor{red}{1}\textcolor{cyan}{?category=Напитки\&page=1}
+    /api/shops/\textcolor{cyan}{1}\textcolor{magenta}{?category=Напитки\&page=1}
     \medskip
     \begin{minted}[fontsize=\tiny]{json}
     {
@@ -258,7 +276,8 @@
 \end{frame}
 
 \begin{frame}[fragile]
-    \frametitle{JWT}
+    \frametitle{Алгоритм работы программы}
+    \framesubtitle{JWT}
     \begin{center}
       \textcolor{red}{eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9}.
       \textcolor{magenta}{eyJpZCI6MiwidXNlcm5hbWUiOiJyb290IiwiaWF0IjoxNTIzNjgyNTMyfQ}.
@@ -289,7 +308,7 @@
         \textcolor{cyan}{Signature}
         \medskip
         \begin{minted}[fontsize=\tiny]{javascript}
-            HASH(
+            hash(
               base64(header) + "." +
               base64(payload),
               secret)
@@ -298,18 +317,14 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{JWT}
+    \frametitle{Алгоритм работы программы}
+    \framesubtitle{JWT}
     \begin{center}
       \includegraphics[width=\linewidth]{jwt-diagram}
-    \end{center}
-\end{frame}
-
-\begin{frame}
-    \frametitle{База данных}
-    \medskip
-    \begin{center}
-      \includegraphics[width=\linewidth]{database}
-    \end{center}
+    \end{center} 
+    \begin{flushright}
+      {\tiny \cite{jwt}}
+    \end{flushright}
 \end{frame}
 
 \begin{frame}[c]
