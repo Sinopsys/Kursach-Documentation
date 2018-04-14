@@ -27,6 +27,9 @@
            % ,style=authoryear-icomp
             ]{biblatex}
 \addbibresource{used_sources.bib}
+\usepackage{caption}
+\newlength{\mylen}
+
 
 %%% Информация об авторе и выступлении
 \title[Заголовок]{\footnotesize Факультет Компьютерных Наук\\Департамент
@@ -65,10 +68,10 @@
               сбор данных с сайтов указанных магазинов, с последующей отправкой
               их на сервер в формате JSON
         \item REST API --- Стиль архитектуры программного обеспечения для
-              построения веб-сервисов с использованием протокола HTTP.
+              построения веб-сервисов с использованием протокола HTTP
         \item ORM --- технология программирования, которая связывает базы
               данных с концепциями объектно-ориентированных языков программирования,
-              создавая «виртуальную объектную базу данных».
+              создавая «виртуальную объектную базу данных»
         \item Activity --- компонент приложения, с
               которым пользователи могут взаимодействовать для выполнения
               каких-либо действий
@@ -80,10 +83,12 @@
     \framesubtitle{Популярность скидок в интернете}
     \begin{figure}
         \includegraphics[width=\columnwidth]{trend.png}
+        \captionsetup{labelformat=empty}
         \caption{Статистика запроса ``скидки'' в Google}
     \end{figure}
     \begin{figure}
         \includegraphics[width=\columnwidth]{trend_edadeal.png}
+        \captionsetup{labelformat=empty}
         \caption{Статистика запроса ``Едадил'' в Google}
     \end{figure}
 \end{frame}
@@ -92,9 +97,11 @@
     \frametitle{Обоснование актуальности работы}
     \framesubtitle{Проблема}
     \begin{enumerate}
+        \item Неудобство пользования бумажными каталогами
+        \item Отсутствие приложений с функционалом создания нескольких списков покупок
+        \item Отсутствие приложений с функционалом добавления в список ``пользовательских позиций''
         \item Рост количества страниц со скидками на отдельных сайтах магазинов
         \item Разный дизайн и архитектура сайтов магазинов
-        \item Отсутствие приложений с функционалом создания нескольких списков покупок
             % Люди стремятся экономить, но разный дизайн сайтов магазинов и отсутствие у некоторых магазинов сайтов впринципе, усложняет их задачу.
     \end{enumerate}
 \end{frame}
@@ -112,7 +119,9 @@
         \item Продумать модульность архитектуры
         \item Реализовать программу
         \item Разработать техническую документацию
-            % Люди стремятся экономить, но разный дизайн сайтов магазинов и отсутствие у некоторых магазинов сайтов впринципе, усложняет их задачу.
+            % Люди стремятся экономить, но разный дизайн сайтов магазинов и
+            % отсутствие у некоторых магазинов сайтов впринципе, усложняет их
+            % задачу.
     \end{enumerate}
 \end{frame}
 
@@ -131,7 +140,7 @@
     % -------------------------------
     % -------------------------------
     % -------------------------------
-\frametitle{Преимущества перед аналогами}
+\frametitle{Особенности приложения}
 	\begin{multicols}{2}
         Удобство использования
         \bigskip
@@ -174,6 +183,47 @@
     \end{multicols}
 \end{frame}
 
+\begin{frame}
+    \frametitle{Алгоритм работы программы}
+    \framesubtitle{Crawler: селекторы}
+
+    \begin{center}
+        CATEGORIES = '//a[@class="catalog-categories\_\_link"]/@href'
+        \includegraphics[width=0.9\columnwidth]{code.png}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Алгоритм работы программы}
+    \framesubtitle{Crawler: пауки (spiders)}
+    \begin{columns}
+        \setlength{\mylen}{0.7\textwidth}
+        \begin{column}{\dimexpr\textwidth-\mylen}
+            \begin{scriptsize}
+            \begin{enumerate}
+                \item Открывает страницу сайта (загружает исходный код)
+                \item Ищет корневой элемент
+                \item Создаётся Item
+                \item Последовательно заполняет поля
+                \item Отправляет Item в модуль pipelines
+                \item Переходит на следующую страницу
+            \end{enumerate}
+            \end{scriptsize}
+        \end{column}
+        \begin{column}{\mylen}
+            \includegraphics[width=0.9\columnwidth]{dixy_example.png}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Алгоритм работы программы}
+    \framesubtitle{Crawler: pipelines (пост-обработка объектов)}
+    \begin{center}
+        \includegraphics[width=0.9\columnwidth]{code_pipeline.png}
+    \end{center}
+\end{frame}
 
 \begin{frame}[fragile]
     \frametitle{REST API}
