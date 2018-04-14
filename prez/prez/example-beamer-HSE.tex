@@ -23,6 +23,11 @@
 \usepackage{multicol} 		% Несколько колонок
 \graphicspath{{images/}}  	% Папка с картинками
 
+\usepackage[backend=biber
+           % ,style=authoryear-icomp
+            ]{biblatex}
+\addbibresource{used_sources.bib}
+
 %%% Информация об авторе и выступлении
 \title[Заголовок]{\footnotesize Факультет Компьютерных Наук\\Департамент
 Программной Инженерии\\Курсовая работа}
@@ -211,19 +216,30 @@
     \end{center}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[c]
     \frametitle{Результаты работы}
-    asdf
+    \begin{center}
+        Демонстрация
+    \end{center}
 \end{frame}
 
 \begin{frame}
     \frametitle{Выводы по работе}
-    asdf
+    \framesubtitle{Пути дальнейшего развития}
+    \begin{itemize}
+        \item Больше магазинов
+        \item Сотрудничество с магазинами
+        \item Отображение магазинов на карте
+        \item Подписка на уведомления о новых акциях
+        \item Отправка списков покупок между пользователями
+        \item Клиенты на других платформах (IOS, WP)
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
     \frametitle{Список используемых источников}
-    asdf
+    \nocite{*}
+    \printbibliography{}
 \end{frame}
 
 \begin{frame}[c]
