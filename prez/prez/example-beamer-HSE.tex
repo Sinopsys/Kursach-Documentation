@@ -23,16 +23,14 @@
 \usepackage{multicol} 		% Несколько колонок
 \graphicspath{{images/}}  	% Папка с картинками
 
-\usepackage[backend=biber
-           % ,style=authoryear-icomp
-            ]{biblatex}
+\usepackage[backend=biber]{biblatex}
 \addbibresource{used_sources.bib}
 
 %%% Информация об авторе и выступлении
 \title[Заголовок]{\footnotesize Факультет Компьютерных Наук\\Департамент
 Программной Инженерии\\Курсовая работа}
 \subtitle{Клиент-Серверное Приложение для Управления Скидками в Розничных Сетях}
-\author[Куприянов К.И.,\smallskip Суровцев М.А.]{\scriptsize Выполнили студенты
+\author[Куприянов К.И., Суровцев М.А.]{\scriptsize Выполнили студенты
 гр.БПИ151\\Куприянов Кирилл\\Суровцев Максим\\Научный руководитель:\\Профессор
 ДПИ Александров Дмитрий Владимирович}
 \institute[Высшая школа экономики]{}
@@ -180,7 +178,7 @@
 
     /api/shops/\textcolor{red}{1}\textcolor{cyan}{?category=Напитки\&page=1}
     \medskip
-    \begin{minted}{json}
+    \begin{minted}[fontsize=\tiny]{json}
     {
       "count": 9,
       "numPages": 1,
@@ -207,6 +205,53 @@
       ]
     }
     \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{JWT}
+    \begin{center}
+      \textcolor{red}{eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9}.
+      \textcolor{magenta}{eyJpZCI6MiwidXNlcm5hbWUiOiJyb290IiwiaWF0IjoxNTIzNjgyNTMyfQ}.
+      \textcolor{cyan}{OvECDXoD-IU0AUrP99gGxyYjMxsoIFiK4EBsDVQHAFo}
+    \end{center}
+    \medskip
+    \begin{columns}[t]
+      \column{0.3\textwidth}
+        \textcolor{red}{Header}
+        \medskip
+        \begin{minted}[fontsize=\tiny]{json}
+            {
+              "alg": "HS256",
+              "typ": "JWT"
+            }
+        \end{minted}
+      \column{0.3\textwidth}
+        \textcolor{magenta}{Payload}
+        \medskip
+        \begin{minted}[fontsize=\tiny]{json}
+            {
+              "id": 2,
+              "username": "root",
+              "iat": 1523682532
+            }
+        \end{minted}
+      \column{0.3\textwidth}
+        \textcolor{cyan}{Signature}
+        \medskip
+        \begin{minted}[fontsize=\tiny]{javascript}
+            HASH(
+              base64(header) + "." +
+              base64(payload),
+              secret)
+        \end{minted}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{JWT}
+    \begin{center}
+      \includegraphics[width=\linewidth]{jwt-diagram}
+    \end{center}
 \end{frame}
 
 \begin{frame}
